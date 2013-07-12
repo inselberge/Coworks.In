@@ -1,0 +1,10 @@
+<div id="TokenHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "token.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseToken($dbcBrowse, $qArg);
+        } else {
+            browseToken($dbcBrowse, null);
+        }
+    ?>
+</div>

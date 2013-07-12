@@ -1,0 +1,10 @@
+<div id="Link_TagsHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "link_tags.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseLink_Tags($dbcBrowse, $qArg);
+        } else {
+            browseLink_Tags($dbcBrowse, null);
+        }
+    ?>
+</div>

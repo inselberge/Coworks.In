@@ -1,0 +1,21 @@
+<div class="span3">
+	<a href="#net_promoter_words-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new net_promoter_words</a>
+</div>
+<div id="net_promoter_words-dialog" class="modal hide pop" title="Net Promoter Words">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="net_promoter_words.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Net Promoter Words</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="net_promoter_score_id" name="net_promoter_score_id" value="<?php reqpostcheck('net_promoter_score_id'); ?>" required/>
+			<p><label for="word"><strong>Word</strong></label><br/><input type="text" name="word"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="word"  value="<?php reqpostcheck('word'); ?>" required title="Please enter a valid string of letters and numbers"/></p>
+			<p><label for="count"><strong>Count</strong></label><br/><input type="number" pattern="[0-9]{1,10}" name="count" id="count"  value="<?php reqpostcheck('count'); ?>" onkeyup="showResultCheck(this.value,22,'live_count')" required title="Please enter a valid integer"/><div id="live_count"></div></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,10 @@
+<div id="User_TimeHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "user_time.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseUser_Time($dbcBrowse, $qArg);
+        } else {
+            browseUser_Time($dbcBrowse, null);
+        }
+    ?>
+</div>

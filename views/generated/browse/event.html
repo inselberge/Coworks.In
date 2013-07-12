@@ -1,0 +1,10 @@
+<div id="EventHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "event.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseEvent($dbcBrowse, $qArg);
+        } else {
+            browseEvent($dbcBrowse, null);
+        }
+    ?>
+</div>

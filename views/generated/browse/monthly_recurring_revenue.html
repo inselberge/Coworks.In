@@ -1,0 +1,10 @@
+<div id="Monthly_Recurring_RevenueHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "monthly_recurring_revenue.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseMonthly_Recurring_Revenue($dbcBrowse, $qArg);
+        } else {
+            browseMonthly_Recurring_Revenue($dbcBrowse, null);
+        }
+    ?>
+</div>

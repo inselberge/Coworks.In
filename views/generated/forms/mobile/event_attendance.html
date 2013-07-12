@@ -1,0 +1,32 @@
+<div class="span3">
+	<a href="#event_attendance-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new event_attendance</a>
+</div>
+<div id="event_attendance-dialog" class="modal hide pop" title="Event Attendance">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="event_attendance.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Event Attendance</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="event_id" name="event_id" value="<?php reqpostcheck('event_id'); ?>" required/>
+			<input type="hidden" id="user_id" name="user_id" value="<?php reqpostcheck('user_id'); ?>" required/>
+			<p><label for="attending" class="ui-input-text"><strong>Attending</strong></label><br/>
+			<select name="attending" id="attending" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'yes'"<?php if(reqpostcheck('attending') === "'yes'"){echo "selected";} ?>>Yes</option><option value="'no'"<?php if(reqpostcheck('attending') === "'no'"){echo "selected";} ?>>No</option><option value="'maybe'"<?php if(reqpostcheck('attending') === "'maybe'"){echo "selected";} ?>>Maybe</option><option value="'lead'"<?php if(reqpostcheck('attending') === "'lead'"){echo "selected";} ?>>Lead</option></select></p>
+			<p><label for="checked_in" class="ui-input-text"><strong>Checked In</strong></label><br/>
+			<input type="number" pattern="[0-9]{1,1}" name="checked_in" id="checked_in"  value="<?php reqpostcheck('checked_in'); ?>" onkeyup="showResultCheck(this.value,22,'live_checked_in')"  title="Please enter a valid integer"/><div id="live_checked_in"></div></p>
+			<p><label for="create_date" class="ui-input-text"><strong>Create Date</strong></label><br/>
+			<input type="datetime" class="timestamp" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<p><label for="modif_date" class="ui-input-text"><strong>Modif Date</strong></label><br/>
+			<input type="datetime" class="timestamp" name="modif_date" id="modif_date"  value="<?php reqpostcheck('modif_date'); ?>"  readonly="true" /></p>
+			<p><label for="modify_user" class="ui-input-text"><strong>Modify User</strong></label><br/>
+			<input type="number" pattern="[0-9]{1,10}" name="modify_user" id="modify_user"  value="<?php reqpostcheck('modify_user'); ?>" onkeyup="showResultCheck(this.value,22,'live_modify_user')"  title="Please enter a valid integer"/><div id="live_modify_user"></div></p>
+			<p><label for="modify_reason" class="ui-input-text"><strong>Modify Reason</strong></label><br/>
+			<input type="text" name="modify_reason"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="modify_reason"  value="<?php reqpostcheck('modify_reason'); ?>"  title="Please enter a valid string of letters and numbers"/></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

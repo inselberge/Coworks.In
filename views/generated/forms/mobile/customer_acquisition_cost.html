@@ -1,0 +1,43 @@
+<div class="span3">
+	<a href="#customer_acquisition_cost-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new customer_acquisition_cost</a>
+</div>
+<div id="customer_acquisition_cost-dialog" class="modal hide pop" title="Customer Acquisition Cost">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="customer_acquisition_cost.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Customer Acquisition Cost</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="coworking_space_id" name="coworking_space_id" value="<?php reqpostcheck('coworking_space_id'); ?>" required/>
+			<p><label for="marketing_spend" class="ui-input-text"><strong>Marketing Spend</strong></label><br/>
+			1</p>
+			<p><label for="spend_per_signup_blended" class="ui-input-text"><strong>Spend Per Signup Blended</strong></label><br/>
+			1</p>
+			<p><label for="spend_per_signup_paid" class="ui-input-text"><strong>Spend Per Signup Paid</strong></label><br/>
+			1</p>
+			<p><label for="sales_spend" class="ui-input-text"><strong>Sales Spend</strong></label><br/>
+			1</p>
+			<p><label for="sales_spend_per_new_paying_customer" class="ui-input-text"><strong>Sales Spend Per New Paying Customer</strong></label><br/>
+			1</p>
+			<p><label for="total_customer_acquisition_cost_blended" class="ui-input-text"><strong>Total Customer Acquisition Cost Blended</strong></label><br/>
+			1</p>
+			<p><label for="total_customer_acquisition_cost_paid" class="ui-input-text"><strong>Total Customer Acquisition Cost Paid</strong></label><br/>
+			1</p>
+			<p><label for="time_to_recover_cac_in_months" class="ui-input-text"><strong>Time To Recover Cac In Months</strong></label><br/>
+			<input type="number" class="float" name="time_to_recover_cac_in_months" id="time_to_recover_cac_in_months"  pattern="\d+(\.\d{2})?" value="<?php reqpostcheck('time_to_recover_cac_in_months'); ?>" required title="Please enter a valid floating point number" /></p>
+			<p><label for="customer_lifetime_value" class="ui-input-text"><strong>Customer Lifetime Value</strong></label><br/>
+			1</p>
+			<p><label for="customer_lifetime_value_acquisition_cost_multiple" class="ui-input-text"><strong>Customer Lifetime Value Acquisition Cost Multiple</strong></label><br/>
+			1</p>
+			<p><label for="create_date" class="ui-input-text"><strong>Create Date</strong></label><br/>
+			<input type="datetime" class="timestamp" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<p><label for="modify_date" class="ui-input-text"><strong>Modify Date</strong></label><br/>
+			<input type="datetime" class="timestamp" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>" required readonly="true" /></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

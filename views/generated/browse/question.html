@@ -1,0 +1,10 @@
+<div id="QuestionHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "question.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseQuestion($dbcBrowse, $qArg);
+        } else {
+            browseQuestion($dbcBrowse, null);
+        }
+    ?>
+</div>

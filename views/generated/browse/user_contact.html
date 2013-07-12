@@ -1,0 +1,10 @@
+<div id="User_ContactHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "user_contact.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseUser_Contact($dbcBrowse, $qArg);
+        } else {
+            browseUser_Contact($dbcBrowse, null);
+        }
+    ?>
+</div>

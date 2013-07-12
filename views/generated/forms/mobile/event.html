@@ -1,0 +1,38 @@
+<div class="span3">
+	<a href="#event-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new event</a>
+</div>
+<div id="event-dialog" class="modal hide pop" title="Event">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="event.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Event</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="user_id" name="user_id" value="<?php reqpostcheck('user_id'); ?>" required/>
+			<input type="hidden" id="title" name="title" value="<?php reqpostcheck('title'); ?>" required/>
+			<p><label for="description" class="ui-input-text"><strong>Description</strong></label><br/>
+			<input type="textbox" name="description" id="description"   value="<?php reqpostcheck('description'); ?>" required title="Please enter only valid text"/></p>
+			<p><label for="start_time" class="ui-input-text"><strong>Start Time</strong></label><br/>
+			<input type="datetime" class="timestamp" name="start_time" id="start_time"  value="<?php reqpostcheck('start_time'); ?>" required readonly="true" /></p>
+			<p><label for="end_time" class="ui-input-text"><strong>End Time</strong></label><br/>
+			<input type="datetime" class="timestamp" name="end_time" id="end_time"  value="<?php reqpostcheck('end_time'); ?>" required readonly="true" /></p>
+			<p><label for="url" class="ui-input-text"><strong>Url</strong></label><br/>
+			<input type="url" id="url" name="url" placeholder="coworks.in" value="<?php reqpostcheck('url'); ?>"  onkeyup=showResultCheck(this.value,2,"live_url") requiredtitle="Please enter a valid URL"/><div id="live_url"></div></p>
+			<p><label for="status" class="ui-input-text"><strong>Status</strong></label><br/>
+			<select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'"<?php if(reqpostcheck('status') === "'pending'"){echo "selected";} ?>>Pending</option><option value="'enabled'"<?php if(reqpostcheck('status') === "'enabled'"){echo "selected";} ?>>Enabled</option><option value="'disabled'"<?php if(reqpostcheck('status') === "'disabled'"){echo "selected";} ?>>Disabled</option><option value="'retired'"<?php if(reqpostcheck('status') === "'retired'"){echo "selected";} ?>>Retired</option></select></p>
+			<p><label for="create_date" class="ui-input-text"><strong>Create Date</strong></label><br/>
+			<input type="datetime" class="timestamp" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<input type="hidden" id="thread" name="thread" value="<?php reqpostcheck('thread'); ?>" />
+			<p><label for="modify_date" class="ui-input-text"><strong>Modify Date</strong></label><br/>
+			<input type="datetime" class="timestamp" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>"  readonly="true" /></p>
+			<input type="hidden" id="modify_user" name="modify_user" value="<?php reqpostcheck('modify_user'); ?>" />
+			<p><label for="modify_reason" class="ui-input-text"><strong>Modify Reason</strong></label><br/>
+			<input type="text" name="modify_reason"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="modify_reason"  value="<?php reqpostcheck('modify_reason'); ?>"  title="Please enter a valid string of letters and numbers"/></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

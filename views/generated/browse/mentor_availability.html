@@ -1,0 +1,10 @@
+<div id="Mentor_AvailabilityHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "mentor_availability.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseMentor_Availability($dbcBrowse, $qArg);
+        } else {
+            browseMentor_Availability($dbcBrowse, null);
+        }
+    ?>
+</div>

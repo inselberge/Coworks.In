@@ -1,0 +1,30 @@
+<div class="span3">
+	<a href="#response-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new response</a>
+</div>
+<div id="response-dialog" class="modal hide pop" title="Response">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="response.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Response</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="question_id" name="question_id" value="<?php reqpostcheck('question_id'); ?>" required/>
+			<input type="hidden" id="user_id" name="user_id" value="<?php reqpostcheck('user_id'); ?>" required/>
+			<p><label for="title"><strong>Title</strong></label><br/><input type="text" name="title"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="title"  value="<?php reqpostcheck('title'); ?>" required title="Please enter a valid string of letters and numbers"/></p>
+			<p><label for="response"><strong>Response</strong></label><br/><input type="textbox" name="response" id="response"   value="<?php reqpostcheck('response'); ?>" required title="Please enter only valid text"/></p>
+			<p><label for="status"><strong>Status</strong></label><br/><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'"<?php if(reqpostcheck('status') === "'pending'"){echo "selected";} ?>>Pending</option><option value="'enabled'"<?php if(reqpostcheck('status') === "'enabled'"){echo "selected";} ?>>Enabled</option><option value="'disabled'"<?php if(reqpostcheck('status') === "'disabled'"){echo "selected";} ?>>Disabled</option><option value="'retired'"<?php if(reqpostcheck('status') === "'retired'"){echo "selected";} ?>>Retired</option></select></p>
+			<input type="hidden" id="thread" name="thread" value="<?php reqpostcheck('thread'); ?>" />
+			<p><label for="flag"><strong>Flag</strong></label><br/><input type="number" pattern="[0-9]{1,3}" name="flag" id="flag"  value="<?php reqpostcheck('flag'); ?>" onkeyup="showResultCheck(this.value,22,'live_flag')"  title="Please enter a valid integer"/><div id="live_flag"></div></p>
+			<p><label for="last_flagged"><strong>Last Flagged</strong></label><br/><input type="datetime" class="timestamp" name="last_flagged" id="last_flagged"  value="<?php reqpostcheck('last_flagged'); ?>"  readonly="true" /></p>
+			<p><label for="create_date"><strong>Create Date</strong></label><br/><input type="datetime" class="timestamp" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<p><label for="modify_date"><strong>Modify Date</strong></label><br/><input type="datetime" class="timestamp" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>"  readonly="true" /></p>
+			<input type="hidden" id="modify_user" name="modify_user" value="<?php reqpostcheck('modify_user'); ?>" />
+			<p><label for="modify_reason"><strong>Modify Reason</strong></label><br/><input type="text" name="modify_reason"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="modify_reason"  value="<?php reqpostcheck('modify_reason'); ?>"  title="Please enter a valid string of letters and numbers"/></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

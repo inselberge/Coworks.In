@@ -1,0 +1,10 @@
+<div id="Net_Promoter_ScoreHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "net_promoter_score.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseNet_Promoter_Score($dbcBrowse, $qArg);
+        } else {
+            browseNet_Promoter_Score($dbcBrowse, null);
+        }
+    ?>
+</div>

@@ -1,0 +1,10 @@
+<div id="Location_User_StatusHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "location_user_status.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseLocation_User_Status($dbcBrowse, $qArg);
+        } else {
+            browseLocation_User_Status($dbcBrowse, null);
+        }
+    ?>
+</div>

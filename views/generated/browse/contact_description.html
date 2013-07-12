@@ -1,0 +1,10 @@
+<div id="Contact_DescriptionHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "contact_description.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseContact_Description($dbcBrowse, $qArg);
+        } else {
+            browseContact_Description($dbcBrowse, null);
+        }
+    ?>
+</div>

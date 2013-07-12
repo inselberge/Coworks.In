@@ -1,0 +1,10 @@
+<div id="Billing_PlanHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "billing_plan.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseBilling_Plan($dbcBrowse, $qArg);
+        } else {
+            browseBilling_Plan($dbcBrowse, null);
+        }
+    ?>
+</div>

@@ -1,0 +1,10 @@
+<div id="User_BioHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "user_bio.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseUser_Bio($dbcBrowse, $qArg);
+        } else {
+            browseUser_Bio($dbcBrowse, null);
+        }
+    ?>
+</div>

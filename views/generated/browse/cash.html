@@ -1,0 +1,10 @@
+<div id="CashHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "cash.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseCash($dbcBrowse, $qArg);
+        } else {
+            browseCash($dbcBrowse, null);
+        }
+    ?>
+</div>

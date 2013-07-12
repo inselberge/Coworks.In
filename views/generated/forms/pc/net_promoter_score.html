@@ -1,0 +1,30 @@
+<div class="span3">
+	<a href="#net_promoter_score-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new net_promoter_score</a>
+</div>
+<div id="net_promoter_score-dialog" class="modal hide pop" title="Net Promoter Score">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="net_promoter_score.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Net Promoter Score</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="coworking_space_id" name="coworking_space_id" value="<?php reqpostcheck('coworking_space_id'); ?>" required/>
+			<p><label for="quantitative_question"><strong>Quantitative Question</strong></label><br/><input type="textbox" name="quantitative_question" id="quantitative_question"   value="<?php reqpostcheck('quantitative_question'); ?>" required title="Please enter only valid text"/></p>
+			<p><label for="quantitative_max"><strong>Quantitative Max</strong></label><br/><input type="number" pattern="[0-9]{1,4}" name="quantitative_max" id="quantitative_max"  value="<?php reqpostcheck('quantitative_max'); ?>" onkeyup="showResultCheck(this.value,22,'live_quantitative_max')" required title="Please enter a valid integer"/><div id="live_quantitative_max"></div></p>
+			<p><label for="qualitative_question"><strong>Qualitative Question</strong></label><br/><input type="textbox" name="qualitative_question" id="qualitative_question"   value="<?php reqpostcheck('qualitative_question'); ?>" required title="Please enter only valid text"/></p>
+			<p><label for="views"><strong>Views</strong></label><br/><input type="number" pattern="[0-9]{1,10}" name="views" id="views"  value="<?php reqpostcheck('views'); ?>" onkeyup="showResultCheck(this.value,22,'live_views')" required title="Please enter a valid integer"/><div id="live_views"></div></p>
+			<p><label for="incompletes"><strong>Incompletes</strong></label><br/><input type="number" pattern="[0-9]{1,10}" name="incompletes" id="incompletes"  value="<?php reqpostcheck('incompletes'); ?>" onkeyup="showResultCheck(this.value,22,'live_incompletes')" required title="Please enter a valid integer"/><div id="live_incompletes"></div></p>
+			<p><label for="completes"><strong>Completes</strong></label><br/><input type="number" pattern="[0-9]{1,10}" name="completes" id="completes"  value="<?php reqpostcheck('completes'); ?>" onkeyup="showResultCheck(this.value,22,'live_completes')" required title="Please enter a valid integer"/><div id="live_completes"></div></p>
+			<p><label for="status"><strong>Status</strong></label><br/><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'"<?php if(reqpostcheck('status') === "'pending'"){echo "selected";} ?>>Pending</option><option value="'enabled'"<?php if(reqpostcheck('status') === "'enabled'"){echo "selected";} ?>>Enabled</option><option value="'disabled'"<?php if(reqpostcheck('status') === "'disabled'"){echo "selected";} ?>>Disabled</option><option value="'retired'"<?php if(reqpostcheck('status') === "'retired'"){echo "selected";} ?>>Retired</option></select></p>
+			<p><label for="create_date"><strong>Create Date</strong></label><br/><input type="datetime" class="timestamp" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>"  readonly="true" /></p>
+			<p><label for="modify_date"><strong>Modify Date</strong></label><br/><input type="datetime" class="timestamp" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>"  readonly="true" /></p>
+			<input type="hidden" id="modify_user" name="modify_user" value="<?php reqpostcheck('modify_user'); ?>" />
+			<p><label for="modify_reason"><strong>Modify Reason</strong></label><br/><input type="text" name="modify_reason"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="modify_reason"  value="<?php reqpostcheck('modify_reason'); ?>"  title="Please enter a valid string of letters and numbers"/></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

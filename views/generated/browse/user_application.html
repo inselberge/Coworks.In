@@ -1,0 +1,10 @@
+<div id="User_ApplicationHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "user_application.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseUser_Application($dbcBrowse, $qArg);
+        } else {
+            browseUser_Application($dbcBrowse, null);
+        }
+    ?>
+</div>

@@ -1,0 +1,10 @@
+<div id="Coworking_Space_Billing_PlanHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "coworking_space_billing_plan.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseCoworking_Space_Billing_Plan($dbcBrowse, $qArg);
+        } else {
+            browseCoworking_Space_Billing_Plan($dbcBrowse, null);
+        }
+    ?>
+</div>

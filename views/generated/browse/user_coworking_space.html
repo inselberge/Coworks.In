@@ -1,0 +1,10 @@
+<div id="User_Coworking_SpaceHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "user_coworking_space.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseUser_Coworking_Space($dbcBrowse, $qArg);
+        } else {
+            browseUser_Coworking_Space($dbcBrowse, null);
+        }
+    ?>
+</div>

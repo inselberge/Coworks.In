@@ -1,0 +1,21 @@
+<div class="span3">
+	<a href="#job_tags-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new job_tags</a>
+</div>
+<div id="job_tags-dialog" class="modal hide pop" title="Job Tags">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="job_tags.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Job Tags</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="job_id" name="job_id" value="<?php reqpostcheck('job_id'); ?>" required/>
+			<input type="hidden" id="tag_id" name="tag_id" value="<?php reqpostcheck('tag_id'); ?>" required/>
+			<p><label for="create_date"><strong>Create Date</strong></label><br/><input type="datetime" class="timestamp" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

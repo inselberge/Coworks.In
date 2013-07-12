@@ -1,0 +1,10 @@
+<div id="LinkHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "link.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseLink($dbcBrowse, $qArg);
+        } else {
+            browseLink($dbcBrowse, null);
+        }
+    ?>
+</div>

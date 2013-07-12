@@ -1,0 +1,25 @@
+<div class="span3">
+	<a href="#company_tags-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new company_tags</a>
+</div>
+<div id="company_tags-dialog" class="modal hide pop" title="Company Tags">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="company_tags.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Company Tags</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" id="company_id" name="company_id" value="<?php reqpostcheck('company_id'); ?>" required/>
+			<input type="hidden" id="tag_id" name="tag_id" value="<?php reqpostcheck('tag_id'); ?>" required/>
+			<p><label for="status"><strong>Status</strong></label><br/><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'"<?php if(reqpostcheck('status') === "'pending'"){echo "selected";} ?>>Pending</option><option value="'enabled'"<?php if(reqpostcheck('status') === "'enabled'"){echo "selected";} ?>>Enabled</option><option value="'disabled'"<?php if(reqpostcheck('status') === "'disabled'"){echo "selected";} ?>>Disabled</option><option value="'retired'"<?php if(reqpostcheck('status') === "'retired'"){echo "selected";} ?>>Retired</option></select></p>
+			<p><label for="create_date"><strong>Create Date</strong></label><br/><input type="datetime" class="timestamp" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<p><label for="modify_date"><strong>Modify Date</strong></label><br/><input type="datetime" class="timestamp" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>"  readonly="true" /></p>
+			<p><label for="modify_user"><strong>Modify User</strong></label><br/><input type="number" pattern="[0-9]{1,10}" name="modify_user" id="modify_user"  value="<?php reqpostcheck('modify_user'); ?>" onkeyup="showResultCheck(this.value,22,'live_modify_user')"  title="Please enter a valid integer"/><div id="live_modify_user"></div></p>
+			<p><label for="modify_reason"><strong>Modify Reason</strong></label><br/><input type="text" name="modify_reason"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="modify_reason"  value="<?php reqpostcheck('modify_reason'); ?>"  title="Please enter a valid string of letters and numbers"/></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

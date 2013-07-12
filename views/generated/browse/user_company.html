@@ -1,0 +1,10 @@
+<div id="User_CompanyHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "user_company.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseUser_Company($dbcBrowse, $qArg);
+        } else {
+            browseUser_Company($dbcBrowse, null);
+        }
+    ?>
+</div>

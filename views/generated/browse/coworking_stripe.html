@@ -1,0 +1,10 @@
+<div id="Coworking_StripeHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "coworking_stripe.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseCoworking_Stripe($dbcBrowse, $qArg);
+        } else {
+            browseCoworking_Stripe($dbcBrowse, null);
+        }
+    ?>
+</div>

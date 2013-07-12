@@ -1,0 +1,104 @@
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+
+2013-07-12 02:11:25 databaseQueryMySQLi::handleErrors:Unable to perform query.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php (86)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(56): databaseQueryMySQLi->handleErrors()
+#1 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(40): databaseQueryMySQLi->executeQuery()
+#2 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(268): databaseQueryMySQLi->execute('SET PASSWORD FO...')
+#3 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(114): databaseUserGeneratorMySQLi->setPassword()
+#4 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(146): databaseUserGeneratorMySQLi->execute()
+#5 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(127): databaseUserGeneratorMySQLi->iterate()
+#6 /home/carl/Public/Amphibian/generators/php/databaseUserGeneratorMySQLi.php(311): databaseUserGeneratorMySQLi->createDefaultUsers()
+#7 /home/carl/Public/Amphibian/generators/php/fullRun.php(18): require_once('/home/carl/Publ...')
+#8 {main}
+

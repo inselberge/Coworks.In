@@ -1,0 +1,10 @@
+<div id="Conference_RoomHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "conference_room.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseConference_Room($dbcBrowse, $qArg);
+        } else {
+            browseConference_Room($dbcBrowse, null);
+        }
+    ?>
+</div>

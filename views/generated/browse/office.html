@@ -1,0 +1,10 @@
+<div id="OfficeHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "office.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseOffice($dbcBrowse, $qArg);
+        } else {
+            browseOffice($dbcBrowse, null);
+        }
+    ?>
+</div>

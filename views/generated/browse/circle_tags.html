@@ -1,0 +1,10 @@
+<div id="Circle_TagsHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "circle_tags.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseCircle_Tags($dbcBrowse, $qArg);
+        } else {
+            browseCircle_Tags($dbcBrowse, null);
+        }
+    ?>
+</div>

@@ -1,0 +1,10 @@
+<div id="JobHolder" class="holder">
+    <?php
+        //remember to require_once BROWSE_CONTROLLERS . "job.php";
+        if ( isset($qArg) AND !is_null($qArg) ) {
+            browseJob($dbcBrowse, $qArg);
+        } else {
+            browseJob($dbcBrowse, null);
+        }
+    ?>
+</div>
