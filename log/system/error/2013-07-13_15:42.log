@@ -1,0 +1,7 @@
+2013-07-13 15:42:41 checkInput::checkNewInputArray: The new value is not an array.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/checkInput.php (44)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/php/classGenerator.php(87): checkInput::checkNewInputArray(false)
+#1 /home/carl/Public/Amphibian/generators/php/classGenerator.php(877): classGenerator->execute()
+#2 {main}
+
