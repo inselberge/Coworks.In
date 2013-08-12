@@ -2,19 +2,33 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Invite
+Class: User_InviteModel
 ******************/
 class User_InviteModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $email;
-    public $key;
-    public $status;
-    public $create_date;
-    public $expire_date;
+    private $id;
+    protected $user_id;
+    protected $email;
+    protected $key;
+    protected $status;
+    protected $create_date;
+    protected $expire_date;
+    static public $User_InviteModel;
     static protected $acceptableKeys = array("id", "user_id", "email", "key", "status", "create_date", "expire_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_InviteModel) ) {
+            self::$User_InviteModel = new User_InviteModel($dbc);
+        } else {
+            self::$User_InviteModel->connection = $dbc;
+        }
+        return self::$User_InviteModel;
+    }
 
     /**setValue
      * @param $key

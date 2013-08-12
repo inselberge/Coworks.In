@@ -2,16 +2,30 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Event_Tags
+Class: Event_TagsModel
 ******************/
 class Event_TagsModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $event_id;
-    public $tag_id;
-    public $create_date;
+    private $id;
+    protected $event_id;
+    protected $tag_id;
+    protected $create_date;
+    static public $Event_TagsModel;
     static protected $acceptableKeys = array("id", "event_id", "tag_id", "create_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Event_TagsModel) ) {
+            self::$Event_TagsModel = new Event_TagsModel($dbc);
+        } else {
+            self::$Event_TagsModel->connection = $dbc;
+        }
+        return self::$Event_TagsModel;
+    }
 
     /**setValue
      * @param $key

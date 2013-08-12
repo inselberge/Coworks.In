@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Login
+Class: User_LoginModel
 ******************/
 class User_LoginModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $ip;
-    public $failure;
-    public $login_time;
-    public $logout_time;
-    public $time_online;
-    public $create_date;
+    private $id;
+    protected $user_id;
+    protected $ip;
+    protected $failure;
+    protected $login_time;
+    protected $logout_time;
+    protected $time_online;
+    protected $create_date;
+    static public $User_LoginModel;
     static protected $acceptableKeys = array("id", "user_id", "ip", "failure", "login_time", "logout_time", "time_online", "create_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_LoginModel) ) {
+            self::$User_LoginModel = new User_LoginModel($dbc);
+        } else {
+            self::$User_LoginModel->connection = $dbc;
+        }
+        return self::$User_LoginModel;
+    }
 
     /**setValue
      * @param $key

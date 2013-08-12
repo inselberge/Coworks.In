@@ -2,21 +2,35 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Contact_Description
+Class: Contact_DescriptionModel
 ******************/
 class Contact_DescriptionModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $title;
-    public $description;
-    public $status;
-    public $create_date;
-    public $thread;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $title;
+    protected $description;
+    protected $status;
+    protected $create_date;
+    protected $thread;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Contact_DescriptionModel;
     static protected $acceptableKeys = array("id", "title", "description", "status", "create_date", "thread", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Contact_DescriptionModel) ) {
+            self::$Contact_DescriptionModel = new Contact_DescriptionModel($dbc);
+        } else {
+            self::$Contact_DescriptionModel->connection = $dbc;
+        }
+        return self::$Contact_DescriptionModel;
+    }
 
     /**setValue
      * @param $key

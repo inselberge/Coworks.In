@@ -2,22 +2,36 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Coworking_Stripe
+Class: Coworking_StripeModel
 ******************/
 class Coworking_StripeModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_id;
-    public $live;
-    public $type;
-    public $key;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $coworking_id;
+    protected $live;
+    protected $type;
+    protected $key;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Coworking_StripeModel;
     static protected $acceptableKeys = array("id", "coworking_id", "live", "type", "key", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Coworking_StripeModel) ) {
+            self::$Coworking_StripeModel = new Coworking_StripeModel($dbc);
+        } else {
+            self::$Coworking_StripeModel->connection = $dbc;
+        }
+        return self::$Coworking_StripeModel;
+    }
 
     /**setValue
      * @param $key

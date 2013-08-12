@@ -2,22 +2,36 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Billing_Plan
+Class: Billing_PlanModel
 ******************/
 class Billing_PlanModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $title;
-    public $description;
-    public $price;
-    public $compounds;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $title;
+    protected $description;
+    protected $price;
+    protected $compounds;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Billing_PlanModel;
     static protected $acceptableKeys = array("id", "title", "description", "price", "compounds", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Billing_PlanModel) ) {
+            self::$Billing_PlanModel = new Billing_PlanModel($dbc);
+        } else {
+            self::$Billing_PlanModel->connection = $dbc;
+        }
+        return self::$Billing_PlanModel;
+    }
 
     /**setValue
      * @param $key

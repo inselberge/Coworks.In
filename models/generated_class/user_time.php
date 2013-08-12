@@ -2,19 +2,33 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Time
+Class: User_TimeModel
 ******************/
 class User_TimeModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $giving_user_id;
-    public $taking_user_id;
-    public $help_id;
-    public $start_time;
-    public $end_time;
-    public $total_time;
+    private $id;
+    protected $giving_user_id;
+    protected $taking_user_id;
+    protected $help_id;
+    protected $start_time;
+    protected $end_time;
+    protected $total_time;
+    static public $User_TimeModel;
     static protected $acceptableKeys = array("id", "giving_user_id", "taking_user_id", "help_id", "start_time", "end_time", "total_time");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_TimeModel) ) {
+            self::$User_TimeModel = new User_TimeModel($dbc);
+        } else {
+            self::$User_TimeModel->connection = $dbc;
+        }
+        return self::$User_TimeModel;
+    }
 
     /**setValue
      * @param $key

@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Image
+Class: User_ImageModel
 ******************/
 class User_ImageModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $image;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $image;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $User_ImageModel;
     static protected $acceptableKeys = array("id", "user_id", "image", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_ImageModel) ) {
+            self::$User_ImageModel = new User_ImageModel($dbc);
+        } else {
+            self::$User_ImageModel->connection = $dbc;
+        }
+        return self::$User_ImageModel;
+    }
 
     /**setValue
      * @param $key

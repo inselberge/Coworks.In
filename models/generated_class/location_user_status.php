@@ -2,18 +2,32 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Location_User_Status
+Class: Location_User_StatusModel
 ******************/
 class Location_User_StatusModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $location_id;
-    public $user_id;
-    public $check_in;
-    public $check_out;
-    public $time_on_location;
+    private $id;
+    protected $location_id;
+    protected $user_id;
+    protected $check_in;
+    protected $check_out;
+    protected $time_on_location;
+    static public $Location_User_StatusModel;
     static protected $acceptableKeys = array("id", "location_id", "user_id", "check_in", "check_out", "time_on_location");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Location_User_StatusModel) ) {
+            self::$Location_User_StatusModel = new Location_User_StatusModel($dbc);
+        } else {
+            self::$Location_User_StatusModel->connection = $dbc;
+        }
+        return self::$Location_User_StatusModel;
+    }
 
     /**setValue
      * @param $key

@@ -2,21 +2,35 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Circle
+Class: User_CircleModel
 ******************/
 class User_CircleModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $circle_id;
-    public $user_id;
-    public $member_type;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $circle_id;
+    protected $user_id;
+    protected $member_type;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $User_CircleModel;
     static protected $acceptableKeys = array("id", "circle_id", "user_id", "member_type", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_CircleModel) ) {
+            self::$User_CircleModel = new User_CircleModel($dbc);
+        } else {
+            self::$User_CircleModel->connection = $dbc;
+        }
+        return self::$User_CircleModel;
+    }
 
     /**setValue
      * @param $key

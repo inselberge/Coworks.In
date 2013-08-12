@@ -2,16 +2,30 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Help_Tags
+Class: Help_TagsModel
 ******************/
 class Help_TagsModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $help_id;
-    public $tag_id;
-    public $create_date;
+    private $id;
+    protected $help_id;
+    protected $tag_id;
+    protected $create_date;
+    static public $Help_TagsModel;
     static protected $acceptableKeys = array("id", "help_id", "tag_id", "create_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Help_TagsModel) ) {
+            self::$Help_TagsModel = new Help_TagsModel($dbc);
+        } else {
+            self::$Help_TagsModel->connection = $dbc;
+        }
+        return self::$Help_TagsModel;
+    }
 
     /**setValue
      * @param $key

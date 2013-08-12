@@ -2,21 +2,35 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Mentor_Availability
+Class: Mentor_AvailabilityModel
 ******************/
 class Mentor_AvailabilityModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $start_time;
-    public $end_time;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $start_time;
+    protected $end_time;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Mentor_AvailabilityModel;
     static protected $acceptableKeys = array("id", "user_id", "start_time", "end_time", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Mentor_AvailabilityModel) ) {
+            self::$Mentor_AvailabilityModel = new Mentor_AvailabilityModel($dbc);
+        } else {
+            self::$Mentor_AvailabilityModel->connection = $dbc;
+        }
+        return self::$Mentor_AvailabilityModel;
+    }
 
     /**setValue
      * @param $key

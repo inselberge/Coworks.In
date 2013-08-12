@@ -2,19 +2,33 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Type
+Class: User_TypeModel
 ******************/
 class User_TypeModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $type;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $type;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $User_TypeModel;
     static protected $acceptableKeys = array("id", "user_id", "type", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_TypeModel) ) {
+            self::$User_TypeModel = new User_TypeModel($dbc);
+        } else {
+            self::$User_TypeModel->connection = $dbc;
+        }
+        return self::$User_TypeModel;
+    }
 
     /**setValue
      * @param $key

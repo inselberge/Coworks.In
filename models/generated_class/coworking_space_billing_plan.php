@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Coworking_Space_Billing_Plan
+Class: Coworking_Space_Billing_PlanModel
 ******************/
 class Coworking_Space_Billing_PlanModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_space_id;
-    public $billing_plan_id;
-    public $stripe_status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $coworking_space_id;
+    protected $billing_plan_id;
+    protected $stripe_status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Coworking_Space_Billing_PlanModel;
     static protected $acceptableKeys = array("id", "coworking_space_id", "billing_plan_id", "stripe_status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Coworking_Space_Billing_PlanModel) ) {
+            self::$Coworking_Space_Billing_PlanModel = new Coworking_Space_Billing_PlanModel($dbc);
+        } else {
+            self::$Coworking_Space_Billing_PlanModel->connection = $dbc;
+        }
+        return self::$Coworking_Space_Billing_PlanModel;
+    }
 
     /**setValue
      * @param $key

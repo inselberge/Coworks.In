@@ -2,27 +2,41 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Monthly_Recurring_Revenue
+Class: Monthly_Recurring_RevenueModel
 ******************/
 class Monthly_Recurring_RevenueModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_space_id;
-    public $start_of_month_recurring_revenue;
-    public $new_recurring_revenue_from_new_customers;
-    public $new_recurring_revenue_from_expansion;
-    public $total_new_recurring_revenue;
-    public $lost_recurring_revenue_from_contraction;
-    public $churn_rate;
-    public $net_new_recurring_revenue;
-    public $end_of_month_recurring_revenue;
-    public $month_over_month_growth;
-    public $average_revenue_per_account;
-    public $average_revenue_per_new_account;
-    public $create_date;
-    public $modify_date;
+    private $id;
+    protected $coworking_space_id;
+    protected $start_of_month_recurring_revenue;
+    protected $new_recurring_revenue_from_new_customers;
+    protected $new_recurring_revenue_from_expansion;
+    protected $total_new_recurring_revenue;
+    protected $lost_recurring_revenue_from_contraction;
+    protected $churn_rate;
+    protected $net_new_recurring_revenue;
+    protected $end_of_month_recurring_revenue;
+    protected $month_over_month_growth;
+    protected $average_revenue_per_account;
+    protected $average_revenue_per_new_account;
+    protected $create_date;
+    protected $modify_date;
+    static public $Monthly_Recurring_RevenueModel;
     static protected $acceptableKeys = array("id", "coworking_space_id", "start_of_month_recurring_revenue", "new_recurring_revenue_from_new_customers", "new_recurring_revenue_from_expansion", "total_new_recurring_revenue", "lost_recurring_revenue_from_contraction", "churn_rate", "net_new_recurring_revenue", "end_of_month_recurring_revenue", "month_over_month_growth", "average_revenue_per_account", "average_revenue_per_new_account", "create_date", "modify_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Monthly_Recurring_RevenueModel) ) {
+            self::$Monthly_Recurring_RevenueModel = new Monthly_Recurring_RevenueModel($dbc);
+        } else {
+            self::$Monthly_Recurring_RevenueModel->connection = $dbc;
+        }
+        return self::$Monthly_Recurring_RevenueModel;
+    }
 
     /**setValue
      * @param $key

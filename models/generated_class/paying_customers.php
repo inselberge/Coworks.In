@@ -2,24 +2,38 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Paying_Customers
+Class: Paying_CustomersModel
 ******************/
 class Paying_CustomersModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_space_id;
-    public $start_of_month_customers;
-    public $new_customers;
-    public $conversion_rate;
-    public $lost_customers;
-    public $churn_rate;
-    public $net_new_customers;
-    public $end_of_month_customers;
-    public $growth_customers;
-    public $create_date;
-    public $modify_date;
+    private $id;
+    protected $coworking_space_id;
+    protected $start_of_month_customers;
+    protected $new_customers;
+    protected $conversion_rate;
+    protected $lost_customers;
+    protected $churn_rate;
+    protected $net_new_customers;
+    protected $end_of_month_customers;
+    protected $growth_customers;
+    protected $create_date;
+    protected $modify_date;
+    static public $Paying_CustomersModel;
     static protected $acceptableKeys = array("id", "coworking_space_id", "start_of_month_customers", "new_customers", "conversion_rate", "lost_customers", "churn_rate", "net_new_customers", "end_of_month_customers", "growth_customers", "create_date", "modify_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Paying_CustomersModel) ) {
+            self::$Paying_CustomersModel = new Paying_CustomersModel($dbc);
+        } else {
+            self::$Paying_CustomersModel->connection = $dbc;
+        }
+        return self::$Paying_CustomersModel;
+    }
 
     /**setValue
      * @param $key

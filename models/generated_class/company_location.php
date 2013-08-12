@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Company_Location
+Class: Company_LocationModel
 ******************/
 class Company_LocationModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $company_id;
-    public $location_id;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $company_id;
+    protected $location_id;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Company_LocationModel;
     static protected $acceptableKeys = array("id", "company_id", "location_id", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Company_LocationModel) ) {
+            self::$Company_LocationModel = new Company_LocationModel($dbc);
+        } else {
+            self::$Company_LocationModel->connection = $dbc;
+        }
+        return self::$Company_LocationModel;
+    }
 
     /**setValue
      * @param $key

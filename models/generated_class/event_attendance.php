@@ -2,21 +2,35 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Event_Attendance
+Class: Event_AttendanceModel
 ******************/
 class Event_AttendanceModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $event_id;
-    public $user_id;
-    public $attending;
-    public $checked_in;
-    public $create_date;
-    public $modif_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $event_id;
+    protected $user_id;
+    protected $attending;
+    protected $checked_in;
+    protected $create_date;
+    protected $modif_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Event_AttendanceModel;
     static protected $acceptableKeys = array("id", "event_id", "user_id", "attending", "checked_in", "create_date", "modif_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Event_AttendanceModel) ) {
+            self::$Event_AttendanceModel = new Event_AttendanceModel($dbc);
+        } else {
+            self::$Event_AttendanceModel->connection = $dbc;
+        }
+        return self::$Event_AttendanceModel;
+    }
 
     /**setValue
      * @param $key

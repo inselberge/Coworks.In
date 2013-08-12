@@ -2,21 +2,35 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Stripe
+Class: User_StripeModel
 ******************/
 class User_StripeModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $stripe_token;
-    public $last_checked;
-    public $is_active;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $stripe_token;
+    protected $last_checked;
+    protected $is_active;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $User_StripeModel;
     static protected $acceptableKeys = array("id", "user_id", "stripe_token", "last_checked", "is_active", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_StripeModel) ) {
+            self::$User_StripeModel = new User_StripeModel($dbc);
+        } else {
+            self::$User_StripeModel->connection = $dbc;
+        }
+        return self::$User_StripeModel;
+    }
 
     /**setValue
      * @param $key

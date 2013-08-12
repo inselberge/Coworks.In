@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Event_Room
+Class: Event_RoomModel
 ******************/
 class Event_RoomModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $event_id;
-    public $conference_room_id;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $event_id;
+    protected $conference_room_id;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Event_RoomModel;
     static protected $acceptableKeys = array("id", "event_id", "conference_room_id", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Event_RoomModel) ) {
+            self::$Event_RoomModel = new Event_RoomModel($dbc);
+        } else {
+            self::$Event_RoomModel->connection = $dbc;
+        }
+        return self::$Event_RoomModel;
+    }
 
     /**setValue
      * @param $key

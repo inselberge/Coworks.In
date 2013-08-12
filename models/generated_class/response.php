@@ -2,25 +2,39 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Response
+Class: ResponseModel
 ******************/
 class ResponseModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $question_id;
-    public $user_id;
-    public $title;
-    public $response;
-    public $status;
-    public $thread;
-    public $flag;
-    public $last_flagged;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $question_id;
+    protected $user_id;
+    protected $title;
+    protected $response;
+    protected $status;
+    protected $thread;
+    protected $flag;
+    protected $last_flagged;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $ResponseModel;
     static protected $acceptableKeys = array("id", "question_id", "user_id", "title", "response", "status", "thread", "flag", "last_flagged", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$ResponseModel) ) {
+            self::$ResponseModel = new ResponseModel($dbc);
+        } else {
+            self::$ResponseModel->connection = $dbc;
+        }
+        return self::$ResponseModel;
+    }
 
     /**setValue
      * @param $key

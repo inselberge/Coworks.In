@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Response_Vote
+Class: Response_VoteModel
 ******************/
 class Response_VoteModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $response_id;
-    public $user_id;
-    public $vote;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $response_id;
+    protected $user_id;
+    protected $vote;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Response_VoteModel;
     static protected $acceptableKeys = array("id", "response_id", "user_id", "vote", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Response_VoteModel) ) {
+            self::$Response_VoteModel = new Response_VoteModel($dbc);
+        } else {
+            self::$Response_VoteModel->connection = $dbc;
+        }
+        return self::$Response_VoteModel;
+    }
 
     /**setValue
      * @param $key
