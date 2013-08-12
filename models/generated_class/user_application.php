@@ -2,25 +2,39 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Application
+Class: User_ApplicationModel
 ******************/
 class User_ApplicationModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $languages;
-    public $skills;
-    public $started_business;
-    public $work_habit;
-    public $other;
-    public $interests;
-    public $special;
-    public $convicted_felon;
-    public $computer_fraud_or_theft;
-    public $promo_code;
-    public $create_date;
+    private $id;
+    protected $user_id;
+    protected $languages;
+    protected $skills;
+    protected $started_business;
+    protected $work_habit;
+    protected $other;
+    protected $interests;
+    protected $special;
+    protected $convicted_felon;
+    protected $computer_fraud_or_theft;
+    protected $promo_code;
+    protected $create_date;
+    static public $User_ApplicationModel;
     static protected $acceptableKeys = array("id", "user_id", "languages", "skills", "started_business", "work_habit", "other", "interests", "special", "convicted_felon", "computer_fraud_or_theft", "promo_code", "create_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_ApplicationModel) ) {
+            self::$User_ApplicationModel = new User_ApplicationModel($dbc);
+        } else {
+            self::$User_ApplicationModel->connection = $dbc;
+        }
+        return self::$User_ApplicationModel;
+    }
 
     /**setValue
      * @param $key

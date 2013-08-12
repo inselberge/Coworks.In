@@ -2,16 +2,30 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Link_Tags
+Class: Link_TagsModel
 ******************/
 class Link_TagsModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $link_id;
-    public $tag_id;
-    public $create_date;
+    private $id;
+    protected $link_id;
+    protected $tag_id;
+    protected $create_date;
+    static public $Link_TagsModel;
     static protected $acceptableKeys = array("id", "link_id", "tag_id", "create_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Link_TagsModel) ) {
+            self::$Link_TagsModel = new Link_TagsModel($dbc);
+        } else {
+            self::$Link_TagsModel->connection = $dbc;
+        }
+        return self::$Link_TagsModel;
+    }
 
     /**setValue
      * @param $key

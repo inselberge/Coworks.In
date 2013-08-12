@@ -2,24 +2,38 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Question
+Class: QuestionModel
 ******************/
 class QuestionModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $title;
-    public $description;
-    public $status;
-    public $thread;
-    public $answer_id;
-    public $views;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $title;
+    protected $description;
+    protected $status;
+    protected $thread;
+    protected $answer_id;
+    protected $views;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $QuestionModel;
     static protected $acceptableKeys = array("id", "user_id", "title", "description", "status", "thread", "answer_id", "views", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$QuestionModel) ) {
+            self::$QuestionModel = new QuestionModel($dbc);
+        } else {
+            self::$QuestionModel->connection = $dbc;
+        }
+        return self::$QuestionModel;
+    }
 
     /**setValue
      * @param $key

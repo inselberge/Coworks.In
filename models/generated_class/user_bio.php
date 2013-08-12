@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Bio
+Class: User_BioModel
 ******************/
 class User_BioModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $description;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $description;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $User_BioModel;
     static protected $acceptableKeys = array("id", "user_id", "description", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_BioModel) ) {
+            self::$User_BioModel = new User_BioModel($dbc);
+        } else {
+            self::$User_BioModel->connection = $dbc;
+        }
+        return self::$User_BioModel;
+    }
 
     /**setValue
      * @param $key

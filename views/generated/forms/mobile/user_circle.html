@@ -1,0 +1,31 @@
+<div class="span3">
+	<a href="#user_circle-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new user_circle</a>
+</div>
+<div id="user_circle-dialog" class="modal hide pop" title="User Circle">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="user_circle.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>User Circle</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" class="hide" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" class="hide" id="circle_id" name="circle_id" value="<?php reqpostcheck('circle_id'); ?>" required/>
+			<input type="hidden" class="hide" id="user_id" name="user_id" value="<?php reqpostcheck('user_id'); ?>" required/>
+			<p><label for="member_type" class="ui-input-text"><strong>Member Type</strong></label><br/>
+			<select name="member_type" id="member_type" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'basic'"<?php if(reqpostcheck('member_type') === "'basic'"){echo "selected";} ?>>Basic</option><option value="'manager'"<?php if(reqpostcheck('member_type') === "'manager'"){echo "selected";} ?>>Manager</option><option value="'owner'"<?php if(reqpostcheck('member_type') === "'owner'"){echo "selected";} ?>>Owner</option></select></p>
+			<p><label for="status" class="ui-input-text"><strong>Status</strong></label><br/>
+			<select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'"<?php if(reqpostcheck('status') === "'pending'"){echo "selected";} ?>>Pending</option><option value="'enabled'"<?php if(reqpostcheck('status') === "'enabled'"){echo "selected";} ?>>Enabled</option><option value="'disabled'"<?php if(reqpostcheck('status') === "'disabled'"){echo "selected";} ?>>Disabled</option><option value="'retired'"<?php if(reqpostcheck('status') === "'retired'"){echo "selected";} ?>>Retired</option></select></p>
+			<p><label for="create_date" class="ui-input-text"><strong>Create Date</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<p><label for="modify_date" class="ui-input-text"><strong>Modify Date</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>"  readonly="true" /></p>
+			<input type="hidden" class="hide" id="modify_user" name="modify_user" value="<?php reqpostcheck('modify_user'); ?>" />
+			<p><label for="modify_reason" class="ui-input-text"><strong>Modify Reason</strong></label><br/>
+			<input type="text" class="text varchar ajax" data-input-type="name" spellcheck="true" name="modify_reason"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="modify_reason"  value="<?php reqpostcheck('modify_reason'); ?>"  title="Please enter a valid string of letters and numbers"/></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

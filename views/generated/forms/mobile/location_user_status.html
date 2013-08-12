@@ -1,0 +1,26 @@
+<div class="span3">
+	<a href="#location_user_status-dialog" role="button" class="btn modal-toggle" data-toggle="modal">Add new location_user_status</a>
+</div>
+<div id="location_user_status-dialog" class="modal hide pop" title="Location User Status">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="location_user_status.php">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Location User Status</h3>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" class="hide" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="hidden" class="hide" id="location_id" name="location_id" value="<?php reqpostcheck('location_id'); ?>" required/>
+			<input type="hidden" class="hide" id="user_id" name="user_id" value="<?php reqpostcheck('user_id'); ?>" required/>
+			<p><label for="check_in" class="ui-input-text"><strong>Check In</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" name="check_in" id="check_in"  value="<?php reqpostcheck('check_in'); ?>" required readonly="true" /></p>
+			<p><label for="check_out" class="ui-input-text"><strong>Check Out</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" name="check_out" id="check_out"  value="<?php reqpostcheck('check_out'); ?>"  readonly="true" /></p>
+			<p><label for="time_on_location" class="ui-input-text"><strong>Time On Location</strong></label><br/>
+			<input type="time" data-input-type="time" class="time ajax" name="time_on_location" id="time_on_location"  value="<?php reqpostcheck('time_on_location'); ?>"  title="Please enter a valid time"/><div id="live_time_on_location"></div></p>
+		</div>
+		<div class="modal-footer">
+			<input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary" />
+			<input type="reset" name="reset_button" id="reset_button" class="formbutton btn"/>
+		</div>
+	</form>
+</div>

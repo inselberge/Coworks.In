@@ -2,22 +2,36 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Referral
+Class: ReferralModel
 ******************/
 class ReferralModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $event_id;
-    public $key;
-    public $clicks;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $event_id;
+    protected $key;
+    protected $clicks;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $ReferralModel;
     static protected $acceptableKeys = array("id", "user_id", "event_id", "key", "clicks", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$ReferralModel) ) {
+            self::$ReferralModel = new ReferralModel($dbc);
+        } else {
+            self::$ReferralModel->connection = $dbc;
+        }
+        return self::$ReferralModel;
+    }
 
     /**setValue
      * @param $key

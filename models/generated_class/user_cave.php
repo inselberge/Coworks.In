@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Cave
+Class: User_CaveModel
 ******************/
 class User_CaveModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $flag_count;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $user_id;
+    protected $flag_count;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $User_CaveModel;
     static protected $acceptableKeys = array("id", "user_id", "flag_count", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_CaveModel) ) {
+            self::$User_CaveModel = new User_CaveModel($dbc);
+        } else {
+            self::$User_CaveModel->connection = $dbc;
+        }
+        return self::$User_CaveModel;
+    }
 
     /**setValue
      * @param $key

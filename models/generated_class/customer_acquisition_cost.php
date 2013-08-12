@@ -2,26 +2,40 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Customer_Acquisition_Cost
+Class: Customer_Acquisition_CostModel
 ******************/
 class Customer_Acquisition_CostModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_space_id;
-    public $marketing_spend;
-    public $spend_per_signup_blended;
-    public $spend_per_signup_paid;
-    public $sales_spend;
-    public $sales_spend_per_new_paying_customer;
-    public $total_customer_acquisition_cost_blended;
-    public $total_customer_acquisition_cost_paid;
-    public $time_to_recover_cac_in_months;
-    public $customer_lifetime_value;
-    public $customer_lifetime_value_acquisition_cost_multiple;
-    public $create_date;
-    public $modify_date;
+    private $id;
+    protected $coworking_space_id;
+    protected $marketing_spend;
+    protected $spend_per_signup_blended;
+    protected $spend_per_signup_paid;
+    protected $sales_spend;
+    protected $sales_spend_per_new_paying_customer;
+    protected $total_customer_acquisition_cost_blended;
+    protected $total_customer_acquisition_cost_paid;
+    protected $time_to_recover_cac_in_months;
+    protected $customer_lifetime_value;
+    protected $customer_lifetime_value_acquisition_cost_multiple;
+    protected $create_date;
+    protected $modify_date;
+    static public $Customer_Acquisition_CostModel;
     static protected $acceptableKeys = array("id", "coworking_space_id", "marketing_spend", "spend_per_signup_blended", "spend_per_signup_paid", "sales_spend", "sales_spend_per_new_paying_customer", "total_customer_acquisition_cost_blended", "total_customer_acquisition_cost_paid", "time_to_recover_cac_in_months", "customer_lifetime_value", "customer_lifetime_value_acquisition_cost_multiple", "create_date", "modify_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Customer_Acquisition_CostModel) ) {
+            self::$Customer_Acquisition_CostModel = new Customer_Acquisition_CostModel($dbc);
+        } else {
+            self::$Customer_Acquisition_CostModel->connection = $dbc;
+        }
+        return self::$Customer_Acquisition_CostModel;
+    }
 
     /**setValue
      * @param $key

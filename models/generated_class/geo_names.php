@@ -2,29 +2,43 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Geo_Names
+Class: Geo_NamesModel
 ******************/
 class Geo_NamesModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $country code;
-    public $postal_code;
-    public $place_name;
-    public $state_name;
-    public $state_code;
-    public $county_name;
-    public $county_code;
-    public $community_name;
-    public $community_code;
-    public $latitude;
-    public $longitude;
-    public $accuracy;
-    public $status;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $country code;
+    protected $postal_code;
+    protected $place_name;
+    protected $state_name;
+    protected $state_code;
+    protected $county_name;
+    protected $county_code;
+    protected $community_name;
+    protected $community_code;
+    protected $latitude;
+    protected $longitude;
+    protected $accuracy;
+    protected $status;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Geo_NamesModel;
     static protected $acceptableKeys = array("id", "country code", "postal_code", "place_name", "state_name", "state_code", "county_name", "county_code", "community_name", "community_code", "latitude", "longitude", "accuracy", "status", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Geo_NamesModel) ) {
+            self::$Geo_NamesModel = new Geo_NamesModel($dbc);
+        } else {
+            self::$Geo_NamesModel->connection = $dbc;
+        }
+        return self::$Geo_NamesModel;
+    }
 
     /**setValue
      * @param $key

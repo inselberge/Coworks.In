@@ -2,23 +2,37 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Office
+Class: OfficeModel
 ******************/
 class OfficeModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $location_id;
-    public $name;
-    public $floor;
-    public $max_capacity;
-    public $current_capacity;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $location_id;
+    protected $name;
+    protected $floor;
+    protected $max_capacity;
+    protected $current_capacity;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $OfficeModel;
     static protected $acceptableKeys = array("id", "location_id", "name", "floor", "max_capacity", "current_capacity", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$OfficeModel) ) {
+            self::$OfficeModel = new OfficeModel($dbc);
+        } else {
+            self::$OfficeModel->connection = $dbc;
+        }
+        return self::$OfficeModel;
+    }
 
     /**setValue
      * @param $key

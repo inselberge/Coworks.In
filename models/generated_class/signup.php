@@ -2,30 +2,44 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Signup
+Class: SignupModel
 ******************/
 class SignupModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_space_id;
-    public $last_month_visitors;
-    public $current_visitors;
-    public $growth_of_visitors;
-    public $start_of_month_signups;
-    public $referral_signups;
-    public $walk_in_signups;
-    public $paid_signups;
-    public $total_new_signups;
-    public $last_month_signups;
-    public $growth_of_signups;
-    public $conversion_rate;
-    public $total_referrals;
-    public $referral_conversion_rate;
-    public $end_of_month_signups;
-    public $create_date;
-    public $modify_date;
+    private $id;
+    protected $coworking_space_id;
+    protected $last_month_visitors;
+    protected $current_visitors;
+    protected $growth_of_visitors;
+    protected $start_of_month_signups;
+    protected $referral_signups;
+    protected $walk_in_signups;
+    protected $paid_signups;
+    protected $total_new_signups;
+    protected $last_month_signups;
+    protected $growth_of_signups;
+    protected $conversion_rate;
+    protected $total_referrals;
+    protected $referral_conversion_rate;
+    protected $end_of_month_signups;
+    protected $create_date;
+    protected $modify_date;
+    static public $SignupModel;
     static protected $acceptableKeys = array("id", "coworking_space_id", "last_month_visitors", "current_visitors", "growth_of_visitors", "start_of_month_signups", "referral_signups", "walk_in_signups", "paid_signups", "total_new_signups", "last_month_signups", "growth_of_signups", "conversion_rate", "total_referrals", "referral_conversion_rate", "end_of_month_signups", "create_date", "modify_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$SignupModel) ) {
+            self::$SignupModel = new SignupModel($dbc);
+        } else {
+            self::$SignupModel->connection = $dbc;
+        }
+        return self::$SignupModel;
+    }
 
     /**setValue
      * @param $key

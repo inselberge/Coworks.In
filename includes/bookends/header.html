@@ -1,0 +1,108 @@
+<?php
+//require_once MYSQL;
+?>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Take the work out of coworking">
+    <meta name="author" content="Carl 'Tex' Morgan">
+    <meta name="keywords" content="Coworks.In"/>
+    <meta name="keywords-not" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <?php
+    if(isset($page_title)){
+        echo "<title>".$page_title."</title>";
+    }
+    else{
+        echo "<title>Coworks.In - Take the work out of coworking</title>";
+    }
+    ?>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//google-analytics.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    <link rel="dns-prefetch" href="//code.jquery.com">
+    <link rel="dns-prefetch" href="//modernizr.com">
+    <?php
+        if(isset($dns) AND !is_null($dns)){
+            preLoader("dns",$dns);
+        }
+    ?>
+    <link rel="shortcut icon" href="" />
+    <!--CSS-->
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <?php
+        if(isset($is_mobile) AND !is_null($is_mobile)){
+    ?>
+          <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+    <?php
+        }
+    ?>
+    <!-- Custom CSS -->
+    <?php
+        if(isset($css) AND !is_null($css)){
+            preLoader("css",$css);
+        }
+    ?>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+    <!-- PNG FIX for IE6 -->
+    <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
+    <!--[if lte IE 6]>
+		<script type="text/javascript" src="js/pngfix/supersleight-min.js"></script>
+    <![endif]-->
+    <!-- Prefetch the following assets -->
+    <?php
+        if(isset($prefetch) AND !is_null($prefetch)){
+            preLoader("prefetch",$prefetch);
+        }
+    ?>
+    <!-- Prerender the following links -->
+    <?php
+        if(isset($prerender) AND !is_null($prerender)){
+            preLoader("prerender",$prerender);
+        }
+    ?>
+    <script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
+    <!--All JQuery, custom JS has to be loaded after this -->
+    <?php
+        if(isset($js) AND !is_null($js)){
+            preLoader("js",$js);
+        }
+    ?>
+</head>
+    <body data-role="page">
+        <div id="wrap">
+            <div class="navbar navbar-fixed-top">
+                <a class="navbar-brand pull-left" href="http://coworks.in"><span class="redtext">Coworks</span><span class="greytext">.</span><span class="redtext">In</span></a><span class="navbar-brand greytext">/</span><a class="navbar-brand pull-left" href="http://coworks.in/Geekdom"><span class="blacktext">Geekdom</span></a>
+                <div class="container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"><a href="#">Mission</a></span>
+                        <span class="icon-bar"><a href="#">Events</a></span>
+                        <span class="icon-bar"><a href="#about">Mentors</a></span>
+                        <span class="icon-bar"><a href="#about">Join</a></span>
+                        <span class="icon-bar"><a href="#about">Log In</a></span>
+                    </button>
+                    <div class="nav-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav pull-right">
+                            <li ><a href="#">Mission</a></li>
+                            <li class="active"><a href="#">Events</a></li>
+                            <li><a href="#about">Mentors</a></li>
+                            <li><a href="#contact">Members</a></li>
+                            <li><a href="join.php">Join</a></li>
+                            <li><a href="login.php">Log In</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+
+        <div data-role="content" class="content container clearfix">

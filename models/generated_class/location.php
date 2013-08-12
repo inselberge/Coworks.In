@@ -2,27 +2,41 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Location
+Class: LocationModel
 ******************/
 class LocationModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_space_id;
-    public $address1;
-    public $address2;
-    public $city;
-    public $state;
-    public $zip;
-    public $country;
-    public $longitude;
-    public $latitude;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $coworking_space_id;
+    protected $address1;
+    protected $address2;
+    protected $city;
+    protected $state;
+    protected $zip;
+    protected $country;
+    protected $longitude;
+    protected $latitude;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $LocationModel;
     static protected $acceptableKeys = array("id", "coworking_space_id", "address1", "address2", "city", "state", "zip", "country", "longitude", "latitude", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$LocationModel) ) {
+            self::$LocationModel = new LocationModel($dbc);
+        } else {
+            self::$LocationModel->connection = $dbc;
+        }
+        return self::$LocationModel;
+    }
 
     /**setValue
      * @param $key

@@ -2,19 +2,33 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Country
+Class: CountryModel
 ******************/
 class CountryModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $name;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $name;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $CountryModel;
     static protected $acceptableKeys = array("id", "name", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$CountryModel) ) {
+            self::$CountryModel = new CountryModel($dbc);
+        } else {
+            self::$CountryModel->connection = $dbc;
+        }
+        return self::$CountryModel;
+    }
 
     /**setValue
      * @param $key

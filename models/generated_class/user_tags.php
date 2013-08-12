@@ -2,18 +2,32 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: User_Tags
+Class: User_TagsModel
 ******************/
 class User_TagsModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $user_id;
-    public $tags_id;
-    public $status;
-    public $create_date;
-    public $modify_date;
+    private $id;
+    protected $user_id;
+    protected $tags_id;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    static public $User_TagsModel;
     static protected $acceptableKeys = array("id", "user_id", "tags_id", "status", "create_date", "modify_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$User_TagsModel) ) {
+            self::$User_TagsModel = new User_TagsModel($dbc);
+        } else {
+            self::$User_TagsModel->connection = $dbc;
+        }
+        return self::$User_TagsModel;
+    }
 
     /**setValue
      * @param $key

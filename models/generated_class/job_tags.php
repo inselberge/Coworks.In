@@ -2,16 +2,30 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Job_Tags
+Class: Job_TagsModel
 ******************/
 class Job_TagsModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $job_id;
-    public $tag_id;
-    public $create_date;
+    private $id;
+    protected $job_id;
+    protected $tag_id;
+    protected $create_date;
+    static public $Job_TagsModel;
     static protected $acceptableKeys = array("id", "job_id", "tag_id", "create_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Job_TagsModel) ) {
+            self::$Job_TagsModel = new Job_TagsModel($dbc);
+        } else {
+            self::$Job_TagsModel->connection = $dbc;
+        }
+        return self::$Job_TagsModel;
+    }
 
     /**setValue
      * @param $key

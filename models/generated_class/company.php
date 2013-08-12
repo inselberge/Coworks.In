@@ -2,21 +2,35 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Company
+Class: CompanyModel
 ******************/
 class CompanyModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $title;
-    public $description;
-    public $url;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $title;
+    protected $description;
+    protected $url;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $CompanyModel;
     static protected $acceptableKeys = array("id", "title", "description", "url", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$CompanyModel) ) {
+            self::$CompanyModel = new CompanyModel($dbc);
+        } else {
+            self::$CompanyModel->connection = $dbc;
+        }
+        return self::$CompanyModel;
+    }
 
     /**setValue
      * @param $key

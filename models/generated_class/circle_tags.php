@@ -2,20 +2,34 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Circle_Tags
+Class: Circle_TagsModel
 ******************/
 class Circle_TagsModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $circle_id;
-    public $tag_id;
-    public $status;
-    public $create_date;
-    public $modify_date;
-    public $modify_user;
-    public $modify_reason;
+    private $id;
+    protected $circle_id;
+    protected $tag_id;
+    protected $status;
+    protected $create_date;
+    protected $modify_date;
+    protected $modify_user;
+    protected $modify_reason;
+    static public $Circle_TagsModel;
     static protected $acceptableKeys = array("id", "circle_id", "tag_id", "status", "create_date", "modify_date", "modify_user", "modify_reason");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$Circle_TagsModel) ) {
+            self::$Circle_TagsModel = new Circle_TagsModel($dbc);
+        } else {
+            self::$Circle_TagsModel->connection = $dbc;
+        }
+        return self::$Circle_TagsModel;
+    }
 
     /**setValue
      * @param $key

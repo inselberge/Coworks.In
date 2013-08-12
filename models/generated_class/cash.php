@@ -2,22 +2,36 @@
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";
 /******************
-Class: Cash
+Class: CashModel
 ******************/
 class CashModel extends basicModel implements concreteModelInterface {
     /*** Attributes: ***/
-    protected $id;
-    public $coworking_space_id;
-    public $start_of_month_cash;
-    public $incoming_cash;
-    public $outgoing_cash;
-    public $net_cash_burn;
-    public $end_of_month_cash;
-    public $runaway;
-    public $create_date;
-    public $modify_date;
+    private $id;
+    protected $coworking_space_id;
+    protected $start_of_month_cash;
+    protected $incoming_cash;
+    protected $outgoing_cash;
+    protected $net_cash_burn;
+    protected $end_of_month_cash;
+    protected $runaway;
+    protected $create_date;
+    protected $modify_date;
+    static public $CashModel;
     static protected $acceptableKeys = array("id", "coworking_space_id", "start_of_month_cash", "incoming_cash", "outgoing_cash", "net_cash_burn", "end_of_month_cash", "runaway", "create_date", "modify_date");
 
+
+    /** instance
+     * @param $dbc
+     * @return mixed
+    */
+    static public function instance($dbc) {
+        if(!isset(self::$CashModel) ) {
+            self::$CashModel = new CashModel($dbc);
+        } else {
+            self::$CashModel->connection = $dbc;
+        }
+        return self::$CashModel;
+    }
 
     /**setValue
      * @param $key
