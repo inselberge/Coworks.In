@@ -1,8 +1,22 @@
 <?php 
-require_once CORE_CLASS . "basicAgency.php";
-require_once CORE_INTERFACES . "concreteAgencyInterface.php";
+/**
+ * PHP version 5.4.9-4ubuntu2.2
+ * Created by Amphibian
+ * Project: Coworks.In
+ * User: 
+ * Date: 08/13/2013
+ * Time: 01:07:20
+ */
+require_once CORE_CLASS."basicAgency.php";
+require_once CORE_INTERFACES."concreteAgencyInterface.php";
 /**
  * Class viewUser_InviteAgency
+ *
+ * @category Model
+ * @package  viewUser_Invite
+ * @author   
+ * @license  TBD
+ * @link     TBD
  */
 class viewUser_InviteAgency
     extends basicAgency
