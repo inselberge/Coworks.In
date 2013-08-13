@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+#RewriteBase %{HTTP_HOST}/Members.Geekdom
+#redirect if the file or directory does not exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/?$ /index.php/$0
+# For HTTPS pages:
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)/(billing_plan\.php|user_billing\.php|coworking_space_billing_plan\.php|user_stripe\.php|admin/(.*))/?$ https://%{HTTP_HOST}/$1/$2 [NC,L]
+</IfModule>
