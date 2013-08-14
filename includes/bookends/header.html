@@ -31,7 +31,7 @@
     <link rel="dns-prefetch" href="//modernizr.com">
     <?php
         if(isset($dns) AND !is_null($dns)){
-            preLoader("dns",$dns);
+            preLoader::instance("dns",$dns);
         }
     ?>
     <link rel="shortcut icon" href="" />
@@ -50,7 +50,7 @@
     <!-- Custom CSS -->
     <?php
         if(isset($css) AND !is_null($css)){
-            preLoader("css",$css);
+            preLoader::instance("css",$css);
         }
     ?>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -63,20 +63,20 @@
     <!-- Prefetch the following assets -->
     <?php
         if(isset($prefetch) AND !is_null($prefetch)){
-            preLoader("prefetch",$prefetch);
+            preLoader::instance("prefetch",$prefetch);
         }
     ?>
     <!-- Prerender the following links -->
     <?php
         if(isset($prerender) AND !is_null($prerender)){
-            preLoader("prerender",$prerender);
+            preLoader::instance("prerender",$prerender);
         }
     ?>
     <script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
     <!--All JQuery, custom JS has to be loaded after this -->
     <?php
         if(isset($js) AND !is_null($js)){
-            preLoader("js",$js);
+            preLoader::instance("js",$js);
         }
     ?>
 </head>

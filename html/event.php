@@ -27,7 +27,7 @@ require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."event.php";
-$event= new Event($dbcUser);
+$event= new EventModel($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Event</h1><h3></h3></hgroup></div>';
 require_once BROWSE_CONTROLLERS . "event.php";
 include BROWSE_ELEMENTS."event.html";

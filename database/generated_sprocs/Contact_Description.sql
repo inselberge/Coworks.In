@@ -25,7 +25,6 @@ BEGIN
 	UPDATE `Contact_Description` 
 	SET `title` = TITLE_VALUE, `description` = DESCRIPTION_VALUE, `status` = STATUS_VALUE, `create_date` = CREATE_DATE_VALUE, `thread` = THREAD_VALUE, `modify_date` = MODIFY_DATE_VALUE, `modify_user` = MODIFY_USER_VALUE, `modify_reason` = MODIFY_REASON_VALUE 
 	WHERE `id` = ID_VALUE
-		 AND (SELECT 1 FROM `Contact_Description` WHERE `id` = THREAD_VALUE)
 		 AND (SELECT 1 FROM `User` WHERE `id` = MODIFY_USER_VALUE);
 END$$
 DELIMITER ;
