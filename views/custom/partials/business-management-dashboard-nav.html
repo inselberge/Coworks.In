@@ -4,46 +4,321 @@
 </hgroup>
 <div class="row">
     <div class="col-lg-3">
-        <div id="" class="bs-sidebar">
-            <ul class="nav bs-sidenav">
-                <li><a href="#">Users</a>
-                    <ul class="nav">
-                        <li><a href="#">New</a></li>
-                        <li><a href="#">Billing Problems</a></li>
-                        <li><a href="#">Management</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Office Management</a>
-                    <ul class="nav">
-                        <li><a href="#">Add</a></li>
-                        <li><a href="#">Capacity</a></li>
-                        <li><a href="#">Assign</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Business Management</a>
-                    <ul class="nav">
-                        <li><a href="#">Sign Ups</a></li>
-                        <li><a href="#">Paying Customers</a></li>
-                        <li><a href="#">Monthly Recurring Revenue</a></li>
-                        <li><a href="#">Cost of Customer Acquisition</a></li>
-                        <li><a href="#">Cash</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <div id="BusinessManagementDashboard" class="accordion">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle red-btn collapsed" data-toggle="collapse" data-parent="#BusinessManagementDashboard" href="#UserManagement">
+                        Users
+                    </a>
+                </div>
+                <div id="UserManagement" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <ul class="nav">
+                            <li><a href="#">New</a></li>
+                            <li><a href="#">Billing Problems</a></li>
+                            <li><a href="#">Management</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle red-btn collapsed" data-toggle="collapse" data-parent="#BusinessManagementDashboard" href="#OfficeManagement">
+                        Office
+                    </a>
+                </div>
+                <div id="OfficeManagement" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <ul class="nav">
+                            <li><a href="#">Add</a></li>
+                            <li><a href="#">Capacity</a></li>
+                            <li><a href="#">Assign</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle red-btn collapsed" data-toggle="collapse" data-parent="#BusinessManagementDashboard" href="#StripeManagement">
+                        Stripe
+                    </a>
+                </div>
+                <div id="StripeManagement" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <ul class="nav">
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">Charges</a></li>
+                            <li><a href="#">Customers</a></li>
+                            <li><a href="#">Cards</a></li>
+                            <li><a href="#">Subscriptions</a></li>
+                            <li><a href="#">Plans</a></li>
+                            <li><a href="#">Invoices</a></li>
+                            <li><a href="#">Invoice Items</a></li>
+                            <li><a href="#">Disputes</a></li>
+                            <li><a href="#">Transfers</a></li>
+                            <li><a href="#">Recipients</a></li>
+                            <li><a href="#">Account</a></li>
+                            <li><a href="#">Balance</a></li>
+                            <li><a href="#">Event</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle red-btn collapsed" data-toggle="collapse" data-parent="#BusinessManagementDashboard" href="#BusinessManagement">
+                        Business
+                    </a>
+                </div>
+                <div id="BusinessManagement" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <ul class="nav">
+                            <li><a href="#">Sign Ups</a></li>
+                            <li><a href="#">Paying Customers</a></li>
+                            <li><a href="#">Monthly Recurring Revenue</a></li>
+                            <li><a href="#">Cost of Customer Acquisition</a></li>
+                            <li><a href="#">Cash</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-lg-9">
         <div class="row">
-            <div class="col-lg-4">
-                <figure>
-
-                </figure>
-                <figcaption>
-                    Cash
-                </figcaption>
-            </div>
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4"></div>
+            <div class="dot-border"></div>
+            <h3>User Management</h3>
+            <form>
+                <input type="text" class="type" placeholder="Search">
+                <button type="submit">Go!</button>
+            </form>
+            <div class="dot-border"></div>
+        </div>
+        <div class="row">
+        <table id="browseUserManagement" cellspacing="1" cellpadding="0" class="tablesorter">
+        <thead>
+            <tr>
+                <th class="header">id</th>
+                <th class="header">fullName</th>
+                <th class="header">email</th>
+                <th class="header">password</th>
+                <th class="header">status</th>
+                <th class="header">create_date</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr class="even" bgcolor="white">
+            <td>1</td>
+            <td>System User</td>
+            <td>no-reply@geekdom.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td></td>
+            <td>2013-06-11 19:54:08</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>2</td>
+            <td>Nick Longo</td>
+            <td>nick@geekdom.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-10-13 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>3</td>
+            <td>John Gray</td>
+            <td>john@zippykid.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-01 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>4</td>
+            <td>Vid Luther</td>
+            <td>vid@zippykid.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-01 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>5</td>
+            <td>Wes Wilson</td>
+            <td>wes@iamweswilson.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-01 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>6</td>
+            <td>Roberto Villareal</td>
+            <td>rob@zippykid.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-01 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>7</td>
+            <td>Suizo </td>
+            <td>suizo@suizoserves.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-10-13 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>8</td>
+            <td>Chad Keck</td>
+            <td>chad@chadkeck.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-12-30 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>9</td>
+            <td>James Lewis</td>
+            <td>james@j12designs.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" >Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'" selected>Retired</option></select></td>
+            <td>2011-11-13 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>10</td>
+            <td>James Brehm</td>
+            <td>jbrehm@compassintelligence.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-18 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>11</td>
+            <td>Laura Lorek</td>
+            <td>LauraLorek@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-12-30 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>12</td>
+            <td>Alan Weinkrantz</td>
+            <td>alan@weinkrantz.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-18 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>13</td>
+            <td>Daniel Semmens</td>
+            <td>daniel@startupignite.co</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" >Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'" selected>Retired</option></select></td>
+            <td>2011-11-13 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>14</td>
+            <td>Stephen Young</td>
+            <td>stevoyoung@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>15</td>
+            <td>Patrick Deuley</td>
+            <td>patrick.deuley@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-01 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>16</td>
+            <td>Nathan Roach</td>
+            <td>nathan@nathanroach.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-18 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>17</td>
+            <td>Jason Carpentier</td>
+            <td>jcarpentier@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" >Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'" selected>Retired</option></select></td>
+            <td>2011-11-18 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>18</td>
+            <td>Dustin Larimer</td>
+            <td>dustinlarimer@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-18 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>19</td>
+            <td>BJ Dierkes</td>
+            <td>wdierkes@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>20</td>
+            <td>Trey Evans</td>
+            <td>trey@treyevans.net</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>21</td>
+            <td>Ralph Minderhoud</td>
+            <td>ralphminderhoud@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>22</td>
+            <td>Dane Stuckey</td>
+            <td>dane@danestuckey.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" >Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'" selected>Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>23</td>
+            <td>Jenny Filcheck</td>
+            <td>jenny.filcheck@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        <tr class="odd" bgcolor="gray">
+            <td>24</td>
+            <td>Donovan Murphy</td>
+            <td>donovan.e.murphy@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" selected>Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'">Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        <tr class="even" bgcolor="white">
+            <td>25</td>
+            <td>Dave Sunny Soetanto</td>
+            <td>Davesoetanto@gmail.com</td>
+            <td><form method="post"><button class="black-btn btn">Reset</button></form></td>
+            <td><select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'">Pending</option><option value="'enabled'" >Enabled</option><option value="'disabled'">Disabled</option><option value="'retired'" selected>Retired</option></select></td>
+            <td>2011-11-28 00:00:00</td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="header">id</th>
+                <th class="header">fullName</th>
+                <th class="header">email</th>
+                <th class="header">password</th>
+                <th class="header">status</th>
+                <th class="header">create_date</th>
+            </tr>
+        </tfoot>
+        </table>
         </div>
     </div>
 </div>

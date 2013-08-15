@@ -1,0 +1,32 @@
+PHPSESSID=7tiv3e9ro04hrhfqqonbcthq54::/Coworks.In/html/event.php::2013-08-14 10:12:52 fileHandle::open: open failed.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/fileHandle.php (434)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/log.php(182): fileHandle->open()
+#1 /home/carl/Public/Amphibian/generators/core/log.php(169): log->openLog()
+#2 /home/carl/Public/Amphibian/generators/core/log.php(151): log->iterate()
+#3 /home/carl/Public/Amphibian/generators/core/databaseQuery.php(454): log->execute()
+#4 /home/carl/Public/Amphibian/generators/core/databaseQuery.php(374): databaseQuery->executeLog()
+#5 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(83): databaseQuery->logQuery('CALL insertSess...')
+#6 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(65): databaseQueryMySQLi->executeQuery()
+#7 /home/carl/Public/Coworks.In/includes/inc/tracker.php(74): databaseQueryMySQLi->execute('CALL insertSess...')
+#8 /home/carl/Public/Coworks.In/config/config.inc.php(89): tracker->execute()
+#9 /home/carl/Public/Coworks.In/html/event.php(2): require_once('/home/carl/Publ...')
+#10 {main}
+
+
+PHPSESSID=7tiv3e9ro04hrhfqqonbcthq54::/Coworks.In/html/event.php::2013-08-14 10:12:52 fileHandle::write: write failed.
+Trigger Source: /home/carl/Public/Amphibian/generators/core/fileHandle.php (286)
+Stack Trace:
+#0 /home/carl/Public/Amphibian/generators/core/log.php(232): fileHandle->write('PHPSESSID=7tiv3...')
+#1 /home/carl/Public/Amphibian/generators/core/log.php(170): log->writeLog()
+#2 /home/carl/Public/Amphibian/generators/core/log.php(151): log->iterate()
+#3 /home/carl/Public/Amphibian/generators/core/databaseQuery.php(454): log->execute()
+#4 /home/carl/Public/Amphibian/generators/core/databaseQuery.php(374): databaseQuery->executeLog()
+#5 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(83): databaseQuery->logQuery('CALL insertSess...')
+#6 /home/carl/Public/Amphibian/generators/core/databaseQueryMySQLi.php(65): databaseQueryMySQLi->executeQuery()
+#7 /home/carl/Public/Coworks.In/includes/inc/tracker.php(74): databaseQueryMySQLi->execute('CALL insertSess...')
+#8 /home/carl/Public/Coworks.In/config/config.inc.php(89): tracker->execute()
+#9 /home/carl/Public/Coworks.In/html/event.php(2): require_once('/home/carl/Publ...')
+#10 {main}
+
+

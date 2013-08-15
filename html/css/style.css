@@ -199,8 +199,10 @@ a:hover {
     text-decoration: none;
     color:           #ae0f0f;
 }
-.bs-sidenav > li > a:hover {
-    color: white;
+.nav > li > a:hover, .nav > li > a:focus {
+    background: transparent;
+    text-decoration: overline;
+    color: black;
 }
 /*
  * Table Sorter
