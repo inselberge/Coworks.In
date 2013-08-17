@@ -8,6 +8,7 @@
  * Time: 1:10 PM
  * All rights reserved by Inselberge Inc. unless otherwise stated.
  */
+require_once __DIR__."/../config/config.inc.php";
 require_once __DIR__."/../config/Coworks.In.config.inc.php";
 require_once BOOKENDS."header.html";
 include_once GENERATED_FORM_ELEMENTS."user.desktop.html";

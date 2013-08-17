@@ -94,3 +94,4 @@ $is_mobile=detectMobileDevice();
  */
 require_once BASE_CONFIG."Geekdom.Stripe.config.php";
 require_once BASE_CONFIG."Stripe.config.php";
+require_once INC_PHP."edit_mode.inc.php";

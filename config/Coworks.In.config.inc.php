@@ -1,4 +1,4 @@
-<?php 
+<?php
 define ('JQUERY_VERSION','1.10.1');
 define ('JQUERY_UI_VERSION','1.10.3');
 define ('JQUERY_MOBILE_VERSION','1.3.1');

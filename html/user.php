@@ -23,7 +23,6 @@ $is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
 // Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."user.php";
