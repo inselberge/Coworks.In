@@ -7,10 +7,10 @@
  * Time: 6:16 PM
  * All rights reserved by Inselberge Inc. unless otherwise stated.
  */
-DEFINE ('DB_PASSWORD', 'Br34dcr|_|mb$');
+DEFINE ('DB_PASSWORD', 'W9qmVF4J$kPHFDv');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_USER', 'Minos_user');
-DEFINE ('DB_NAME', 'geekdom_members');
+DEFINE ('DB_NAME', 'Coworks_In');
 /*
  * SSL configuration constants
  * For SSL replication see this website:

@@ -6,6 +6,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/?$ /index.php/$1
 # For HTTPS pages:
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)/(billing_plan\.php|user_billing\.php|coworking_space_billing_plan\.php|user_stripe\.php|admin/(.*))/?$ https://%{HTTP_HOST}/$1/$2 [NC,L]
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)/(billing_plan\.php|user_billing\.php|coworking_space_billing_plan\.php|user_stripe\.php|admin/(.*))/?$ https://%{HTTP_HOST}/$1/$2 [NC,L]
 </IfModule>

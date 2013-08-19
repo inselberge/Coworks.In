@@ -1,8 +1,8 @@
 <?php
-DEFINE ('PWRUSER_DB_USER', 'Members_pwrUser');
-DEFINE ('PWRUSER_DB_PASSWORD', 'ej4DM^MwD#krq9m');
+DEFINE ('PWRUSER_DB_USER', 'Coworks_pwrUser');
+DEFINE ('PWRUSER_DB_PASSWORD', 'HBK7m9(!@$KSSY0');
 DEFINE ('PWRUSER_DB_HOST', 'localhost');
-DEFINE ('PWRUSER_DB_NAME', 'geekdom_members');
+DEFINE ('PWRUSER_DB_NAME', 'Coworks_In');
 /*
  * SSL configuration constants
  * For help with SSL replication see this website:

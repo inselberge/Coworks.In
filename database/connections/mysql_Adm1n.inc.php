@@ -1,8 +1,8 @@
 <?php
-DEFINE ('ADM1N_DB_USER', 'Members_Adm1n');
-DEFINE ('ADM1N_DB_PASSWORD', 'hdimm4AzhArQ#$L');
+DEFINE ('ADM1N_DB_USER', 'Coworks_Adm1n');
+DEFINE ('ADM1N_DB_PASSWORD', '9gNtJPQ%tX#Bt#V');
 DEFINE ('ADM1N_DB_HOST', 'localhost');
-DEFINE ('ADM1N_DB_NAME', 'geekdom_members');
+DEFINE ('ADM1N_DB_NAME', 'Coworks_In');
 /*
  * SSL configuration constants
  * For help with SSL replication see this website:

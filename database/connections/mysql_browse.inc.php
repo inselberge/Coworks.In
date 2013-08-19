@@ -1,8 +1,8 @@
 <?php
-DEFINE ('BROWSE_DB_USER', 'Members_browse');
-DEFINE ('BROWSE_DB_PASSWORD', '5E$aFTDf$NthT(v');
+DEFINE ('BROWSE_DB_USER', 'Coworks_browse');
+DEFINE ('BROWSE_DB_PASSWORD', '%BXeX1oy5jq20y6');
 DEFINE ('BROWSE_DB_HOST', 'localhost');
-DEFINE ('BROWSE_DB_NAME', 'geekdom_members');
+DEFINE ('BROWSE_DB_NAME', 'Coworks_In');
 /*
  * SSL configuration constants
  * For help with SSL replication see this website:
