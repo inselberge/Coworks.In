@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../config/config.inc.php";
-require_once MYSQL;
-//tryUserLevelCheck(BRAND_ADMIN);
+require_once __DIR__."/../config/Coworks.In.config.inc.php";
 /*
 * SEO specific to this page
 */
@@ -18,25 +17,17 @@ $css = array();
 $prefetch = array();
 $dns = array();
 $prerender = array();
-//Detect the device
-$is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
-// Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."contact_description.php";
-$contact_description= new Contact_Description($dbcUser);
+$contact_description= new Contact_DescriptionModel($dbcUser);
+include_once GENERATED_AGENCIES."viewcontact_description.php";
+$contact_descriptionAgency = viewContact_DescriptionAgency::instance($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Contact Description</h1><h3></h3></hgroup></div>';
-require_once BROWSE_CONTROLLERS . "contact_description.php";
-include BROWSE_ELEMENTS."contact_description.html";
+require_once GEN_CONTROLLERS . "contact_description.php";
 //Check for edit mode and the id being set
-if($edit_mode && $the_id){
-	$contact_description->get($dbc,$the_id);
-}
-//Build the contact_description form
-$contact_description->makeForm();
 // Include the HTML footer:
 include BOOKENDS."footer.html";
 ?>

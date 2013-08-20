@@ -1,0 +1,32 @@
+<div id="session-dialog" class="container" title="Session">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="session.php">
+		<div class="">
+			<small class="red">* denotes a required field</small>
+		</div>
+		<div class="span9">
+			<input type="hidden" class="hide" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<p><label for="coworking_space_id" class="ui-input-text"><strong>Coworking Space Id</strong></label><br/>
+			<input type="number" class="number ajax" data-input-type="positive-integer" placeholder="42" pattern="[0-9]{1,10}" name="coworking_space_id" id="coworking_space_id"  value="<?php reqpostcheck('coworking_space_id'); ?>"  title="Please enter a valid integer"/><div id="live_coworking_space_id"></div></p>
+			<p><label for="session_id" class="ui-input-text"><strong>Session Id</strong></label><br/>
+			<input type="text" class="text varchar ajax" data-input-type="name" spellcheck="true" name="session_id"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="session_id"  value="<?php reqpostcheck('session_id'); ?>" required title="Please enter a valid string of letters and numbers" placeholder="Please type the session_id here"/></p>
+			<p><label for="ip" class="ui-input-text"><strong>Ip</strong></label><br/>
+			<input type="text" class="text varchar ajax" data-input-type="name" spellcheck="true" name="ip"  pattern="[a-zA-Z0-9]+{0,15}" maxlength="15" id="ip"  value="<?php reqpostcheck('ip'); ?>" required title="Please enter a valid string of letters and numbers" placeholder="Please type the ip here"/></p>
+			<p><label for="page_views" class="ui-input-text"><strong>Page Views</strong></label><br/>
+			<input type="number" class="number ajax" data-input-type="positive-integer" placeholder="42" pattern="[0-9]{1,10}" name="page_views" id="page_views"  value="<?php reqpostcheck('page_views'); ?>" required title="Please enter a valid integer"/><div id="live_page_views"></div></p>
+			<p><label for="is_member" class="ui-input-text"><strong>Is Member</strong></label><br/>
+			<input type="number" class="number ajax" data-input-type="positive-integer" placeholder="42" pattern="[0-9]{1,1}" name="is_member" id="is_member"  value="<?php reqpostcheck('is_member'); ?>" required title="Please enter a valid integer"/><div id="live_is_member"></div></p>
+			<p><label for="user_id" class="ui-input-text"><strong>User Id</strong></label><br/>
+			<input type="number" class="number ajax" data-input-type="positive-integer" placeholder="42" pattern="[0-9]{1,10}" name="user_id" id="user_id"  value="<?php reqpostcheck('user_id'); ?>"  title="Please enter a valid integer"/><div id="live_user_id"></div></p>
+			<p><label for="create_date" class="ui-input-text"><strong>Create Date</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" placeholder="2013-10-20 01:20:34" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<p><label for="modify_date" class="ui-input-text"><strong>Modify Date</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" placeholder="2013-10-20 01:20:34" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>"  readonly="true" /></p>
+		</div>
+		<div class="action row-fluid">
+			<div class="offset2 span6">
+				<p><input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary red-btn" /></p>
+				<p><input type="reset" name="reset_button" id="reset_button" class="formbutton btn black-btn"/></p>
+			</div>
+		</div>
+	</form>
+</div>

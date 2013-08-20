@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../config/config.inc.php";
-require_once MYSQL;
-//tryUserLevelCheck(BRAND_ADMIN);
+require_once __DIR__."/../config/Coworks.In.config.inc.php";
 /*
 * SEO specific to this page
 */
@@ -18,25 +17,17 @@ $css = array();
 $prefetch = array();
 $dns = array();
 $prerender = array();
-//Detect the device
-$is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
-// Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."coworking_stripe.php";
-$coworking_stripe= new Coworking_Stripe($dbcUser);
+$coworking_stripe= new Coworking_StripeModel($dbcUser);
+include_once GENERATED_AGENCIES."viewcoworking_stripe.php";
+$coworking_stripeAgency = viewCoworking_StripeAgency::instance($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Coworking Stripe</h1><h3></h3></hgroup></div>';
-require_once BROWSE_CONTROLLERS . "coworking_stripe.php";
-include BROWSE_ELEMENTS."coworking_stripe.html";
+require_once GEN_CONTROLLERS . "coworking_stripe.php";
 //Check for edit mode and the id being set
-if($edit_mode && $the_id){
-	$coworking_stripe->get($dbc,$the_id);
-}
-//Build the coworking_stripe form
-$coworking_stripe->makeForm();
 // Include the HTML footer:
 include BOOKENDS."footer.html";
 ?>

@@ -1,0 +1,9 @@
+INSERT INTO geekdom_members.User_Address (user_id, address, city, state,zip, status, create_date)
+SELECT user_id, address, city, UPPER(state), zipcode, 'enabled',NOW() FROM geekdom_production.manager_userprofile 
+	WHERE user_id IN (select id FROM geekdom_members.User) AND address !='';
+
+SELECT count(1) FROM Tags;
+
+SELECT * FROM geekdom_members.User_Address WHERE id<1000;
+
+SELECT * FROM geekdom_production.manager_userprofile WHERE LENGTH(zipcode)>5;

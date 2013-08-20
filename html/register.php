@@ -11,5 +11,6 @@
 require_once __DIR__."/../config/config.inc.php";
 require_once __DIR__."/../config/Coworks.In.config.inc.php";
 require_once BOOKENDS."header.html";
-include_once GENERATED_FORM_ELEMENTS."user.desktop.html";
+
+include_once CUSTOM_FORM_ELEMENTS."register.html";
 require_once BOOKENDS."footer.html";

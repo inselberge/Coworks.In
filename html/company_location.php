@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../config/config.inc.php";
-require_once MYSQL;
-//tryUserLevelCheck(BRAND_ADMIN);
+require_once __DIR__."/../config/Coworks.In.config.inc.php";
 /*
 * SEO specific to this page
 */
@@ -18,25 +17,17 @@ $css = array();
 $prefetch = array();
 $dns = array();
 $prerender = array();
-//Detect the device
-$is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
-// Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."company_location.php";
-$company_location= new Company_Location($dbcUser);
+$company_location= new Company_LocationModel($dbcUser);
+include_once GENERATED_AGENCIES."viewcompany_location.php";
+$company_locationAgency = viewCompany_LocationAgency::instance($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Company Location</h1><h3></h3></hgroup></div>';
-require_once BROWSE_CONTROLLERS . "company_location.php";
-include BROWSE_ELEMENTS."company_location.html";
+require_once GEN_CONTROLLERS . "company_location.php";
 //Check for edit mode and the id being set
-if($edit_mode && $the_id){
-	$company_location->get($dbc,$the_id);
-}
-//Build the company_location form
-$company_location->makeForm();
 // Include the HTML footer:
 include BOOKENDS."footer.html";
 ?>

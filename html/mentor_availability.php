@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../config/config.inc.php";
-require_once MYSQL;
-//tryUserLevelCheck(BRAND_ADMIN);
+require_once __DIR__."/../config/Coworks.In.config.inc.php";
 /*
 * SEO specific to this page
 */
@@ -18,25 +17,17 @@ $css = array();
 $prefetch = array();
 $dns = array();
 $prerender = array();
-//Detect the device
-$is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
-// Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."mentor_availability.php";
-$mentor_availability= new Mentor_Availability($dbcUser);
+$mentor_availability= new Mentor_AvailabilityModel($dbcUser);
+include_once GENERATED_AGENCIES."viewmentor_availability.php";
+$mentor_availabilityAgency = viewMentor_AvailabilityAgency::instance($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Mentor Availability</h1><h3></h3></hgroup></div>';
-require_once BROWSE_CONTROLLERS . "mentor_availability.php";
-include BROWSE_ELEMENTS."mentor_availability.html";
+require_once GEN_CONTROLLERS . "mentor_availability.php";
 //Check for edit mode and the id being set
-if($edit_mode && $the_id){
-	$mentor_availability->get($dbc,$the_id);
-}
-//Build the mentor_availability form
-$mentor_availability->makeForm();
 // Include the HTML footer:
 include BOOKENDS."footer.html";
 ?>

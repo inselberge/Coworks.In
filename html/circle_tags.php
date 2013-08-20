@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../config/config.inc.php";
-require_once MYSQL;
-//tryUserLevelCheck(BRAND_ADMIN);
+require_once __DIR__."/../config/Coworks.In.config.inc.php";
 /*
 * SEO specific to this page
 */
@@ -18,25 +17,17 @@ $css = array();
 $prefetch = array();
 $dns = array();
 $prerender = array();
-//Detect the device
-$is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
-// Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."circle_tags.php";
-$circle_tags= new Circle_Tags($dbcUser);
+$circle_tags= new Circle_TagsModel($dbcUser);
+include_once GENERATED_AGENCIES."viewcircle_tags.php";
+$circle_tagsAgency = viewCircle_TagsAgency::instance($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Circle Tags</h1><h3></h3></hgroup></div>';
-require_once BROWSE_CONTROLLERS . "circle_tags.php";
-include BROWSE_ELEMENTS."circle_tags.html";
+require_once GEN_CONTROLLERS . "circle_tags.php";
 //Check for edit mode and the id being set
-if($edit_mode && $the_id){
-	$circle_tags->get($dbc,$the_id);
-}
-//Build the circle_tags form
-$circle_tags->makeForm();
 // Include the HTML footer:
 include BOOKENDS."footer.html";
 ?>

@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../config/config.inc.php";
-require_once MYSQL;
-//tryUserLevelCheck(BRAND_ADMIN);
+require_once __DIR__."/../config/Coworks.In.config.inc.php";
 /*
 * SEO specific to this page
 */
@@ -18,25 +17,17 @@ $css = array();
 $prefetch = array();
 $dns = array();
 $prerender = array();
-//Detect the device
-$is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
-// Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."customer_acquisition_cost.php";
-$customer_acquisition_cost= new Customer_Acquisition_Cost($dbcUser);
+$customer_acquisition_cost= new Customer_Acquisition_CostModel($dbcUser);
+include_once GENERATED_AGENCIES."viewcustomer_acquisition_cost.php";
+$customer_acquisition_costAgency = viewCustomer_Acquisition_CostAgency::instance($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Customer Acquisition Cost</h1><h3></h3></hgroup></div>';
-require_once BROWSE_CONTROLLERS . "customer_acquisition_cost.php";
-include BROWSE_ELEMENTS."customer_acquisition_cost.html";
+require_once GEN_CONTROLLERS . "customer_acquisition_cost.php";
 //Check for edit mode and the id being set
-if($edit_mode && $the_id){
-	$customer_acquisition_cost->get($dbc,$the_id);
-}
-//Build the customer_acquisition_cost form
-$customer_acquisition_cost->makeForm();
 // Include the HTML footer:
 include BOOKENDS."footer.html";
 ?>

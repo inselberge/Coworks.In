@@ -1,11 +1,11 @@
 <?php 
 /**
- * PHP version 5.4.9-4ubuntu2.2
+ * PHP version 5.4.17-1~dotdeb.1
  * Created by Amphibian
  * Project: Coworks.In
  * User: 
- * Date: 08/13/2013
- * Time: 00:57:58
+ * Date: 08/20/2013
+ * Time: 16:46:04
  */
 require_once CORE_CLASS."basicModel.php";
 require_once CORE_INTERFACES."concreteModelInterface.php";

@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../config/config.inc.php";
-require_once MYSQL;
-//tryUserLevelCheck(BRAND_ADMIN);
+require_once __DIR__."/../config/Coworks.In.config.inc.php";
 /*
 * SEO specific to this page
 */
@@ -18,25 +17,17 @@ $css = array();
 $prefetch = array();
 $dns = array();
 $prerender = array();
-//Detect the device
-$is_mobile=detectMobileDevice();
 // Include the header file:
 include BOOKENDS."header.html";
-// Require the code to handle editing or creating a new object
-require_once INC_PHP."edit_mode.inc.php";
 // For storing errors:
 $errors = array();
 require_once GEN_CLASS."mentor_meeting.php";
-$mentor_meeting= new Mentor_Meeting($dbcUser);
+$mentor_meeting= new Mentor_MeetingModel($dbcUser);
+include_once GENERATED_AGENCIES."viewmentor_meeting.php";
+$mentor_meetingAgency = viewMentor_MeetingAgency::instance($dbcUser);
 echo '<div class="hero-unit shadow"><hgroup><h1>Mentor Meeting</h1><h3></h3></hgroup></div>';
-require_once BROWSE_CONTROLLERS . "mentor_meeting.php";
-include BROWSE_ELEMENTS."mentor_meeting.html";
+require_once GEN_CONTROLLERS . "mentor_meeting.php";
 //Check for edit mode and the id being set
-if($edit_mode && $the_id){
-	$mentor_meeting->get($dbc,$the_id);
-}
-//Build the mentor_meeting form
-$mentor_meeting->makeForm();
 // Include the HTML footer:
 include BOOKENDS."footer.html";
 ?>

@@ -1,0 +1,57 @@
+<div class="dot-border"></div>
+<hgroup>
+    <h1>Signup</h1>
+    <h3>Ready to get started? Great! Please fill out the membership form below.</h3>
+    <h5><span class="red">*</span> indicates a required field</h5>
+</hgroup>
+<div class="dot-border"></div>
+<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="">
+    <section class="center container">
+        <article class="row-fluid">
+            <div class="control-group row-fluid">
+                <label for="first_name" class="span3"><strong>First Name</strong> <span class="red">*</span></strong></label>
+                <input type="text" class="text field varchar ajax span6" data-input-type="name" spellcheck="true" name="first_name" pattern="[a-zA-Z0-9]+{0,64}" maxlength="64" id="first_name" value="<?php reqpostcheck('first_name'); ?>" required title="Please enter a valid string of letters and numbers" placeholder="Please type your first name here"/>
+            </div>
+            <div class="control-group row-fluid">
+                <label class="span3" for="last_name"><strong>Last Name</strong> <span class="red">*</span></strong></label>
+                <input type="text" class="text varchar ajax span6" data-input-type="name" spellcheck="true" name="last_name" pattern="[a-zA-Z0-9]+{0,64}" maxlength="64" id="last_name" value="<?php reqpostcheck('last_name'); ?>" required title="Please enter a valid string of letters and numbers" placeholder="Please type your last name"/>
+            </div>
+        </article>
+        <article class="row-fluid">
+            <div class="control-group row-fluid">
+                <label class="span3" for="email"><strong>Email</strong> <span class="red">*</span></strong></label>
+                <div class="control span9">
+                    <input type="email" class="email ajax" data-input-type="email" id="email" placeholder="me@email.com" name="email" value="<?php reqpostcheck('email'); ?>" required title="Please enter a valid email address"/>
+                    <div id="live_email"></div>
+                </div>
+            </div>
+            <div class="control-group row-fluid">
+                <label class="span3" for="birthday"><strong>Birthday</strong> <span class="red">*</span></strong>
+                </label>
+
+                <div class="control span9">
+                    <input type="date" data-input-type="date" id="birthday" placeholder="MM/DD/YYYY" class="date ajax" name="birthday" value="<?php reqpostcheck('birthday'); ?>" step="1" min="<?php date('Y-m-d');?>" required readonly="true" title="Please enter a valid date"/>
+                    <div id="live_birthday"></div>
+                </div>
+            </div>
+
+        </article>
+        <article class="row-fluid">
+            <div class="control-group row-fluid">
+                <label class="span3" for="password"><strong>Password</strong> <span class="red">*</span></strong>
+                </label>
+
+                <div class="control span9">
+                    <input type="password" class="password ajax" data-input-type="password" id="password" placeholder="6-20 and contain: capital letter, number, special character" name="password" value="<?php reqpostcheck('password'); ?>" data-regexp="^(\w*(?=\w*[0-9])(?=\w*[a-z])(?=\w*[A-Z])\w*){6,20}$" required title="Please enter a 6-20 character password containing 1 uppercase letter, 1 number"/>
+                    <div id="live_password"></div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <div class="action row-fluid control-group">
+        <div>
+            <p><input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary red-btn"/></p>
+            <p><input type="reset" name="reset_button" id="reset_button" class="formbutton btn black-btn"/></p>
+        </div>
+    </div>
+</form>
