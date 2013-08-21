@@ -1,0 +1,1 @@
+SELECT * FROM geekdom_production.easy_thumbnails_source;

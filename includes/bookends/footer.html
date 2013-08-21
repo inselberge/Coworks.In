@@ -1,0 +1,32 @@
+            </div>
+        </div>
+        <div id="footer" data-role="footer" class="footer-container">
+            <footer class="container">
+                <span class="text-muted credit">Developed by <a href="http://inselberge.com" target="new">Inselberge Inc.</a></span><a href=""><img class="social" src="image/google.png"/></a><a href=""><img class="social" src="image/facebook.png"/></a><a href=""><img class="social" src="image/twitter.png"/></a><a href="http://geekdom.com"><img class="geekdomlogo" src="image/geekdom.png"/></a><a href="http://rackspace.com"><img class="rackspacelogo" src="image/rackspace.png"/></a>
+            </footer>
+        </div>
+        <!-- jQuery Minimized -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>')</script>
+        <!-- jQuery UI -->
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <?php
+        if(isset($is_mobile) AND !is_null($is_mobile)){
+    ?>
+        <!-- jQuery Mobile -->
+        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <?php
+        }
+    ?>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/respond.js"></script>
+        <script src="js/site.js"></script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site ID. -->
+        <script>
+            var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src="//www.google-analytics.com/ga.js";
+            s.parentNode.insertBefore(g,s)}(document,"script"));
+        </script>
+    </body>
+</html>

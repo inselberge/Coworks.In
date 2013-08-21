@@ -1,0 +1,28 @@
+<div id="user_cave-dialog" class="container" title="User Cave">
+	<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="user_cave.php">
+		<div class="">
+			<small class="red">* denotes a required field</small>
+		</div>
+		<div class="span9">
+			<input type="hidden" class="hide" id="id" name="id" value="<?php reqpostcheck('id'); ?>" required/>
+			<input type="number" class="number ajax" data-input-type="positive-integer" placeholder="42" pattern="[0-9]{1,10}" name="user_id" id="user_id"  value="<?php reqpostcheck('user_id'); ?>" required title="Please enter a valid integer"/><div id="live_user_id"></div>
+			<p><label for="flag_count" class="ui-input-text"><strong>Flag Count</strong></label><br/>
+			<input type="number" class="number ajax" data-input-type="positive-integer" placeholder="42" pattern="[0-9]{1,10}" name="flag_count" id="flag_count"  value="<?php reqpostcheck('flag_count'); ?>" required title="Please enter a valid integer"/><div id="live_flag_count"></div></p>
+			<p><label for="status" class="ui-input-text"><strong>Status</strong></label><br/>
+			<select name="status" id="status" required title="Please select a valid option"><option value="0" disabled selected>Pick a value</option><option value="'pending'" <?php if(reqpostcheck('status') === "'pending'"){echo "selected";} ?>>Pending</option><option value="'enabled'" <?php if(reqpostcheck('status') === "'enabled'"){echo "selected";} ?>>Enabled</option><option value="'disabled'" <?php if(reqpostcheck('status') === "'disabled'"){echo "selected";} ?>>Disabled</option><option value="'retired'" <?php if(reqpostcheck('status') === "'retired'"){echo "selected";} ?>>Retired</option></select></p>
+			<p><label for="create_date" class="ui-input-text"><strong>Create Date</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" placeholder="2013-10-20 01:20:34" name="create_date" id="create_date"  value="<?php reqpostcheck('create_date'); ?>" required readonly="true" /></p>
+			<p><label for="modify_date" class="ui-input-text"><strong>Modify Date</strong></label><br/>
+			<input type="datetime" data-input-type="timestamp" class="timestamp ajax" placeholder="2013-10-20 01:20:34" name="modify_date" id="modify_date"  value="<?php reqpostcheck('modify_date'); ?>"  readonly="true" /></p>
+			<input type="number" class="number ajax" data-input-type="positive-integer" placeholder="42" pattern="[0-9]{1,10}" name="modify_user" id="modify_user"  value="<?php reqpostcheck('modify_user'); ?>"  title="Please enter a valid integer"/><div id="live_modify_user"></div>
+			<p><label for="modify_reason" class="ui-input-text"><strong>Modify Reason</strong></label><br/>
+			<input type="text" class="text varchar ajax" data-input-type="name" spellcheck="true" name="modify_reason"  pattern="[a-zA-Z0-9]+{0,128}" maxlength="128" id="modify_reason"  value="<?php reqpostcheck('modify_reason'); ?>"  title="Please enter a valid string of letters and numbers" placeholder="Please type the modify_reason here"/></p>
+		</div>
+		<div class="action row-fluid">
+			<div class="offset2 span6">
+				<p><input type="submit" name="submit_button" value="Submit" id="submit_button" class="formbutton btn btn-primary red-btn" /></p>
+				<p><input type="reset" name="reset_button" id="reset_button" class="formbutton btn black-btn"/></p>
+			</div>
+		</div>
+	</form>
+</div>
